@@ -52,4 +52,43 @@ admin.site.register(NazwaKlasyModelu)
 # ? python manage.py runserver
 # adres administratora strony
 # todo http://127.0.0.1:8000/admin/.
-# wdrażanie 
+# ! wdrażanie respozytorium na strone www -> https://krzyzak21.pythonanywhere.com/
+"""
+# w katalogu Git_Folder/_python_base_code/django
+Tworzenie respozytorium Git - ra tworzone na windows
+"""
+# ? git init
+# ? git config --global user.name "Krzyzaku21"
+# ? git config --global user.email krzyzak21@gmail.com
+# todo Tworzneie pliku .gitignore w katalogu Git_Folder/_python_base_code/django
+""".gitignore
+*.pyc
+*~
+__pycache__
+<nazwa virtualnej maszyny django> -> virtual_django_venv
+<nazwa bazy danych> -> db.sqlite3
+/static
+.DS_Store
+"""
+# ? git status
+# ? git add --all .
+# ? git commit -m "My Django app name, first commit"
+# todo Przesyłanie pliku do GitHuba
+"""
+-> Respository
+-> Respository name <respository_git_name>
+-> Create
+"""
+# todo wpisanie w terminalu na PC
+# ? git remote add origin https://github.com/krzyzaku21/respository_git_name.git
+# ? git push -u origin master
+# todo wdrażanie na pythonanywhere itd
+"""
+strona -> www.pythonanywhere.com
+Account -> API Token -> Create API Token
+consoles -> bash
+odpalenie wirtualnej konsoli na stronie
+"""
+# ? $ pip3.6 install --user pythonanywhere
+# ? $ pa_autoconfigure_django.py https://github.com/krzyzaku21/respository_git_name.git
+# ? $ python manage.py createsuperuser
