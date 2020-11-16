@@ -1,0 +1,7 @@
+*.pyc
+*~
+__pycache__
+virtual_django_venv
+db.sqlite3
+/static
+.DS_Store
