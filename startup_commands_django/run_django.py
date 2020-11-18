@@ -1,7 +1,7 @@
 #connect virtual django venv - (virtual_django_venv)
 # ? cd C:\Users\Krzyz\Desktop\Radek Python\Django_Folder\virtual_django_venv\Scripts>activate
 #go to git folder
-# ? cd C:\Users\Krzyz\Desktop\Radek Python\Git_Folder\_python_base_code\django
+# ? cd C:\Users\Krzyz\Desktop\Radek Python\Django_Folder\django
 #create project
 # ? django-admin.exe startproject my_site_name .
 # ! edycja settings.py w pliku my_site_name/settings.py
