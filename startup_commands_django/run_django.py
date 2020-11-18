@@ -1,5 +1,7 @@
 #connect virtual django venv - (virtual_django_venv)
 # ? cd C:\Users\Krzyz\Desktop\Radek Python\Django_Folder\virtual_django_venv\Scripts>activate
+#leave virtual django venv - (virtual_django_venv)
+# ? deactivate
 #go to git folder
 # ? cd C:\Users\Krzyz\Desktop\Radek Python\Django_Folder\django
 #create project
@@ -80,7 +82,7 @@ __pycache__
 -> Create
 """
 # todo wpisanie w terminalu na PC
-# ? git remote add origin https://github.com/krzyzaku21/respository_git_name.git
+# ? git remote add origin https://github.com/Krzyzaku21/respository_git_name.git
 # ? git push -u origin master
 # todo wdrażanie na pythonanywhere itd
 """
