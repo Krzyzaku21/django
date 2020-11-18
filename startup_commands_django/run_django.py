@@ -94,3 +94,15 @@ odpalenie wirtualnej konsoli na stronie
 # ? $ pip3.6 install --user pythonanywhere
 # ? $ pa_autoconfigure_django.py https://github.com/krzyzaku21/respository_git_name.git
 # ? $ python manage.py createsuperuser
+
+"""
+Wysył zmian na GitHuba
+git status
+git add --all
+git status
+git commit -m "cos"
+git push
+Wysył zmian na pythonanywhere
+cd ~/<your-pythonanywhere-domain>.pythonanywhere.com
+git pull
+"""
