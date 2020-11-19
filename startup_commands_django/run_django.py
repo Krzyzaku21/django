@@ -105,4 +105,6 @@ git push
 Wysył zmian na pythonanywhere
 cd ~/<your-pythonanywhere-domain>.pythonanywhere.com
 git pull
+workon <your-pythonanywhere-domain>.pythonanywhere.com
+python manage.py collectstatic
 """
