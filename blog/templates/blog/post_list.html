@@ -1,17 +1,13 @@
-<html>
-    <head><!-- head jest elementem zawierającym informacje o dokumencie, które nie są wyświetlane na ekranie. -->
-        <title>Radek's blog</title> <!--Tytuł strony-->>
-    </head>
-    <body><!-- body zawiera wszystkie pozostałe elementy, które są częścią strony internetowej widoczną na ekranie. -->
-        <div> <!--  tworzy sekcję na stronie -->
-            <h1><a href="/">Blog testowy</a></h1>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-{% for post in posts %}
-<div>
-    <p>published: {{ post.published_date }}</p>
-    <h2><a href="">{{ post.title }}</a></h2>
-    <p>{{ post.text|linebreaksbr }}</p>
-</div>
-{% endfor %}
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
