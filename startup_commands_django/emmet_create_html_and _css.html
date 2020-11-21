@@ -1,0 +1,46 @@
+<!-- Emmet -szybkie pisanie htmla-->
+<!--
+.cos - klasa div
+>cos - zagnieżdzenie
++cos - ten sam poziom
+^cos - wyjscie z zagniezdzenia i powrot do glownego poziomu
+
+-->
+.container>.row>.col-12>h2.text-primary
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-primary"></h2> <!--h2 - nagłówek-->
+        </div>
+    </div>
+</div>
+
+article>h2+span+p+a+span <!--article, span - znaczniki-->
+<article>
+    <h2></h2>
+    <span></span>
+    <p></p>
+    <a href=""></a><span></span>
+</article>
+
+header>h1+p+button^main>div.container^footer
+<header>
+    <h1></h1>
+    <p></p>
+    <button></button>
+</header>
+<main>
+    <div class="container">
+        ul>li*4>a[href="#"].link#$<!--ul -lista nadrzedna, li - lista podrzędna, href - odnośnik, .link#$ - klasa  atrybutem place-holder $ numerującym id=1,2,3... -->
+        <ul>
+            <li><a href="#" class="link" id="1"></a></li>
+            <li><a href="#" class="link" id="2"></a></li>
+            <li><a href="#" class="link" id="3"></a></li>
+            <li><a href="#" class="link" id="4"></a></li>
+        </ul>
+    </div>
+</main>
+<footer></footer>
+
+<!--Tworzenie css itd na stronie-->
+https://docs.emmet.io/cheat-sheet/
