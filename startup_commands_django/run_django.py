@@ -1,3 +1,5 @@
+#create new website project in django folder
+# ? python manage.py startapp <name_of_project>
 #connect virtual django venv - (virtual_django_venv)
 # ? cd C:\Users\Krzyz\Desktop\Radek Python\Django_Folder\virtual_django_venv\Scripts>activate
 #leave virtual django venv - (virtual_django_venv)
