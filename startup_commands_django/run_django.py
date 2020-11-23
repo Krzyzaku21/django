@@ -1,14 +1,21 @@
-#create new website project in django folder
-# ? python manage.py startapp <name_of_project>
-#connect virtual django venv - (virtual_django_venv)
-# ? cd C:\Users\Krzyz\Desktop\Radek Python\Django_Folder\virtual_django_venv\Scripts>activate
-#leave virtual django venv - (virtual_django_venv)
+
+# ! /////////////////////////////////////////// ODPALANIE MASZYNY WIRTUALNEJ
+#konsola jeśli nie zainstalowane to środowisko wirtualne django
+# ? cmd console> python3 -m venv <nazwa env>
+#todo connect virtual django venv - (virtual_django_venv)
+# ? cd C:\Users\Krzyz\Desktop\Radek Python\Django_Folder\virtual_django_venv\Scripts\
+# ? activate
+#todo leave virtual django venv - (virtual_django_venv)
 # ? deactivate
-#go to git folder
+#todo go to git folder
 # ? cd C:\Users\Krzyz\Desktop\Radek Python\Django_Folder\django
-#create project
-# ? django-admin.exe startproject my_site_name .
-# ! edycja settings.py w pliku my_site_name/settings.py
+# ! /////////////////////////////////////////// TWORZENIE DJANGO
+#todo create new django project in django folder #c:\Users\Krzyz\Desktop\Radek Python\Django_Folder\django>
+# ? django-admin.exe startproject <name_of_django_project>
+#todo create new website aplication-project in #c:\Users\Krzyz\Desktop\Radek Python\Django_Folder\django\name_of_django_project>
+# ? python manage.py startapp <name_of_app_project>
+# ! /////////////////////////////////////////// ZARZĄDZANIE PRZED DODANIEM BAZY DANYCH
+# ! edycja settings.py w pliku #c:\Users\Krzyz\Desktop\Radek Python\Django_Folder\django\name_of_django_project>\<name_of_django_project>\settings.py
 """
 TIME_ZONE = 'Europe/Warsaw'
 LANGUAGE_CODE = 'pl-pl'
@@ -25,13 +32,23 @@ DATABASES = {
     }
 }
 """
-#inicjalizacja bazy danych
+
+"""
+DATABASES connect
+postgres://USER:PASSWORD@HOST:PORT/NAME, postgis://USER:PASSWORD@HOST:PORT/NAME, mssql://USER:PASSWORD@HOST:PORT/NAME, mysqlgis://USER:PASSWORD@HOST:PORT/NAME
+sqlite:///PATH, spatialite:///PATH, oracle://USER:PASSWORD@HOST:PORT/NAME, oraclegis://USER:PASSWORD@HOST:PORT/NAME, redshift://USER:PASSWORD@HOST:PORT/NAME
+
+pip install dj-database-url
+import dj_database_url
+DATABASES['default'] = dj_database_url.parse('mysql://root:@localhost:3306/skcms', conn_max_age=600) #mysql://USER:PASSWORD@HOST:PORT/NAME
+"""
+#todo inicjalizacja bazy danych in #c:\Users\Krzyz\Desktop\Radek Python\Django_Folder\django\name_of_django_project> #tam gdzie manage.py w projekcie
 # ? python manage.py migrate
 #uruchomienie projektu // przerwanie ctrl+break+fn guzik
 # ? python manage.py runserver
 #tworzenie aplikacji
 # ? python manage.py startapp my_project_name
-# ! dodajemy aplikacje w pliku my_site_name/settings.py INSTALLED_APPS
+# ! dodajemy aplikacje w pliku name_of_django_project>\<name_of_django_project>/settings.py INSTALLED_APPS
 """
 INSTALLED_APPS = [
     'my_project_name',
