@@ -1,0 +1,21 @@
+{% extends 'main.html'%}
+{% block article %}
+{% if articles.count > 0 %}
+{% for article in articles %}
+                <div class="article"><!--  Artykul -->
+                    <hr>
+                    <h2><a href="/article/{{ article.id }}/">{{article.title}}</a></h2>
+                    <div class="article-info">
+                        Opublikowano : {{article.published}}
+                    </div>
+                    <img src="img/img_1.jpg" class="article-img img-rounded">
+                    <div class="article-intro">
+                        <p>{{article.content}}</p>
+                    </div>
+                    <a class="btn btn-inverse art-more" href="/article/{{ article.id }}/">Zobacz więcej</a>
+                </div><!-- Koniec artykulu -->
+{% endfor %}
+{% else %}
+<p>Brak artykułów</p>
+{% endif %}
+{% endblock %}

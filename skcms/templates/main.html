@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Tytuł</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+ 
+<body>
+
+<div class="container" id="wrapper">
+
+    <div class="row"><!--  PASEK GORA -->
+        <div class="topbar">
+            <div class="logo pull-left">
+                <h1><a href="#"><img src="img/poziom.jpg"></a></h1>
+            </div>
+            <div class="topbar-links pull-right">
+                <a href="login.html">Logowanie</a> | <a href="#">Rejestracja</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row"><!-- Menu -->
+        <div id="mainmenu" class="navbar navbar-inverse"> 
+                <div class="navbar-inner">
+                    <div>
+                        <a class="brand" href="#">CMS</a>
+                        <ul class="nav">
+                            <li class="active"><a href="index.html">Start</a></li>
+                            <li><a href="index.html">Artykuły</a></li>
+                            <li><a href="index.html">Kontakt</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <div class="row"><!-- Glowna czesc -->
+
+        <div class="span9"><!-- Lewa kolumna -->
+            <div  class="row latest"><!-- Najnowsze art -->
+                {% block featured %} <!-- Lista 3 artykułów głównych -->>
+                {% endblock %}
+            </div><!--  Koniec najnowszych art -->
+
+            <div class="row"><!-- Artykuly lista -->
+                {% block article %} <!-- Lista wszystkich artykułów -->>
+                {% endblock %}
+            </div><!--  Koniec listy art -->
+
+        </div><!-- Koniec lewej kolumny -->
+
+        <div class="span3"><!-- Prawa kolumna -->
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Twoje konto</li>
+                    <li class="active"><a href="">Ustawienia profilu</a></li>
+                    <li><a href="">Powiadomienia</a></li>
+                    <li><a href="">Wyloguj</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="span3"><!-- Prawa kolumna -->
+            <img src="img/vert.jpg" alt="">
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <hr>
+        <div class="footer-wrap">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus sem ac placerat dapibus. Suspendisse potenti. Vestibulum eget urna tellus.</p>
+            <p>Strefa Kursów 2013</p>
+        </div>
+    </div>
+
+</div>
+
+</body> 
+
+</html>
