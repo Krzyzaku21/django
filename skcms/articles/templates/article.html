@@ -1,5 +1,7 @@
 {% extends 'main.html' %}
+
 {% block article %}
+
                 <h2>{{ article.title }}</h2>
                 <div class="article-info">
                     Opublikowano : {{ article.published }}
@@ -8,4 +10,5 @@
                 <div class="article-intro">
                     <p>{{ article.content }}</p>
                 </div>
+
 {% endblock %}

@@ -1,6 +1,23 @@
 {% extends 'main.html'%}
+
+{% block featured %}
+
+{% for article in articles %}
+                <div class="span3 latest-article" id="first-art">
+                    <div class="latest-article-wrap">
+                        <a href="#"><img src="/article/{{ article.id }}/" class="img-rounded"></a>
+                        <p>{{ article.content | truncatewords:10 }}</p>
+                        <a href="/article/{{ article.id }}/" class="label label-info pull-right">Więcej</a>
+                    </div>
+                </div>
+{% endfor %}
+
+{% endblock %}
+
 {% block article %}
+
 {% if articles.count > 0 %}
+
 {% for article in articles %}
                 <div class="article"><!--  Artykul -->
                     <hr>
@@ -10,12 +27,15 @@
                     </div>
                     <img src="img/img_1.jpg" class="article-img img-rounded">
                     <div class="article-intro">
-                        <p>{{article.content}}</p>
+                        <p>{{article.content | truncatewords:11 }}</p>
                     </div>
                     <a class="btn btn-inverse art-more" href="/article/{{ article.id }}/">Zobacz więcej</a>
                 </div><!-- Koniec artykulu -->
 {% endfor %}
+
 {% else %}
+
 <p>Brak artykułów</p>
 {% endif %}
+
 {% endblock %}
