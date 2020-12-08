@@ -1,4 +1,5 @@
 {% load static %}
+{% load show_custom_html %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -71,7 +72,7 @@
         </div>
 
         <div class="span3"><!-- Prawa kolumna -->
-            <img src="img/vert.jpg" alt="">
+        {% render_html 1 %}
         </div>
 
 
@@ -80,8 +81,7 @@
     <div class="row">
         <hr>
         <div class="footer-wrap">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus sem ac placerat dapibus. Suspendisse potenti. Vestibulum eget urna tellus.</p>
-            <p>Strefa Kursów 2013</p>
+            {% render_html 1 %}
         </div>
     </div>
 
