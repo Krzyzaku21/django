@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -79,11 +78,11 @@ WSGI_APPLICATION = 'skcms.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 DATABASES['default'] = dj_database_url.parse('mysql://root:@localhost:3306/skcms', conn_max_age=600)
+DATABASES['default']['OPTIONS'] = {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -121,8 +120,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-
+#PLIKI STATYCZNE
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    '/django/skcms/static/',
 ]
+STATIC_URL = '/static/'
+
+#MEDIA ADD
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

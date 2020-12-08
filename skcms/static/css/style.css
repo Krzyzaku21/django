@@ -7,11 +7,12 @@
 .latest-article {
 	font-size: .9em;
 	margin-left: 45px;
-	margin-top: 25px;
-} 
+    margin-top: 25px;
+}
 
 .latest-article img {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
+	margin-left: 45px;
 }
 
 .article-info {

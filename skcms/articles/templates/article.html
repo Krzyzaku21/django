@@ -6,7 +6,7 @@
                 <div class="article-info">
                     Opublikowano : {{ article.published }}
                 </div>
-                <img src="img/img_1.jpg" class="article-img">
+                <img src="{{ article.image.url }}" class="article-img">
                 <div class="article-intro">
                     <p>{{ article.content }}</p>
                 </div>

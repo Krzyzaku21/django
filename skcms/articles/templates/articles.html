@@ -5,8 +5,8 @@
 {% for article in articles %}
                 <div class="span3 latest-article" id="first-art">
                     <div class="latest-article-wrap">
-                        <a href="#"><img src="/article/{{ article.id }}/" class="img-rounded"></a>
-                        <p>{{ article.content | truncatewords:10 }}</p>
+                        <a href="/article/{{ article.id }}/"><img src="{{ article.image.url }}" class="img-rounded"></a>
+                        <p>{{ article.content | truncatewords:11 }}</p>
                         <a href="/article/{{ article.id }}/" class="label label-info pull-right">Więcej</a>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                     <div class="article-info">
                         Opublikowano : {{article.published}}
                     </div>
-                    <img src="img/img_1.jpg" class="article-img img-rounded">
+                    <img src="{{ article.image.url }}" class="article-img img-rounded">
                     <div class="article-intro">
                         <p>{{article.content | truncatewords:11 }}</p>
                     </div>

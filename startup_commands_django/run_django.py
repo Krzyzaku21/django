@@ -127,3 +127,9 @@ git pull
 workon <your-pythonanywhere-domain>.pythonanywhere.com
 python manage.py collectstatic
 """
+# ! kopia pliku do json z danych, indent - wcięcia
+# np: python manage.py dumpdata articles --indent=4 > articles.json
+# ? python manage.py dumpdata appname --indent=4 > filename.json
+# ! wdrażanie obiektu do bazy danych
+# np: python manage.py loaddata articles.json
+# ? python manage.py loaddata filename.json
