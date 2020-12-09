@@ -10,5 +10,16 @@
                 <div class="article-intro">
                     <p>{{ article.content }}</p>
                 </div>
+                <hr>
+                <h3>Komentarze</h3><!-- Komentarze -->
+                {% for c in article.comment_set.all %}
+                <div class="comment">
+                    <p><span><em>{{ c.name }}</em></span></p>
+                    <p>{{ c.content }}</p>
+                    <p><em>Opublikowano: {{ c.published }}</em></p>
+                </div>
+                {%  endfor %}
+
+                <h4><a href= "/article/{{ article.id }}/add_comment">Dodaj komentarz</a></h4>
 
 {% endblock %}

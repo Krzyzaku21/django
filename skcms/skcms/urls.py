@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from skcms import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('article/', include('articles.urls'))
+    path('article/', include('articles.urls')),
+    path('accounts/login/', views.Login.as_view(), name='login'),
+    path('accounts/auth/', views.auth_view, name='auth_view'),
+
 ]
 #Do ładowania zdjęć w trybie DEBUG oraz CSS
 if settings.DEBUG:
