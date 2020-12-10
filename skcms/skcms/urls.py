@@ -24,6 +24,11 @@ urlpatterns = [
     path('article/', include('articles.urls')),
     path('accounts/login/', views.Login.as_view(), name='login'),
     path('accounts/auth/', views.auth_view, name='auth_view'),
+    path('accounts/logout/', views.logout, name='logout'),
+    path('accounts/loggedin/', views.loggedin, name='loggedin'),
+    path('accounts/invalid/', views.invalid_login, name='invalid_login'),
+    path('accounts/create_user/', views.create_user, name='create_user'),
+    path('accounts/create_user_success/', views.create_user_success, name='create_user_success'),
 
 ]
 #Do ładowania zdjęć w trybie DEBUG oraz CSS

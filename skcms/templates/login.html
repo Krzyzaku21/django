@@ -1,1 +1,15 @@
-<h2>LOGIN</h2>
+{% extends "main.html" %}
+
+{% block article %}
+
+<form action="/accounts/auth/" method="post" class="form horizontal well">{% csrf_token %}
+    <label for="username">Użytkownik</label>
+    <input type='text' name='username' value='' id='username'>
+    <label for="password">Hasło</label>
+    <input type='password' name='password' value='' id='password'>
+    <br>
+    <input type='submit' class="btn btn-inverse" value='Zaloguj'>
+
+</form>
+
+{% endblock article %}

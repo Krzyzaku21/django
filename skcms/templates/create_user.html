@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+{% block article %}
+<h3>Rejestracja</h3>
+<form action="/accounts/create_user/" method="post" class="form horizontal well">{% csrf_token %}
+    {{ form }}<!-- pole django form -->
+    <br>
+    <input type='submit' class="btn btn-inverse" value='Zarejestruj'>
+
+</form>
+
+{% endblock article %}}

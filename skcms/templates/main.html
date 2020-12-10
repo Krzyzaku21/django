@@ -18,10 +18,10 @@
     <div class="row"><!--  PASEK GORA -->
         <div class="topbar">
             <div class="logo pull-left">
-                <h1><a href="#"><img src="{% static 'img/poziom.jpg' %}"></a></h1>
+                <h1><a href="/article/show_all/"><img src="{% static 'img/poziom.jpg' %}"></a></h1>
             </div>
             <div class="topbar-links pull-right">
-                <a href="login.html">Logowanie</a> | <a href="#">Rejestracja</a>
+                <a href="/accounts/login/">Logowanie</a> | <a href="/accounts/create_user/">Rejestracja</a>
             </div>
         </div>
     </div>
@@ -66,7 +66,7 @@
                     <li class="nav-header">Twoje konto</li>
                     <li class="active"><a href="">Ustawienia profilu</a></li>
                     <li><a href="">Powiadomienia</a></li>
-                    <li><a href="">Wyloguj</a></li>
+                    <li><a href="/accounts/logout/">Wyloguj</a></li>
                 </ul>
             </div>
         </div>
