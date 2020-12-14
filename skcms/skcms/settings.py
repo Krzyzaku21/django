@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'articles',
     'customhtml',
     'userprofile',
+    'notifications',
 ]
 
 MIDDLEWARE = [

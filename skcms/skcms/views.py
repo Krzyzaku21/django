@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import auth #system uwierzytelnienia i autoryzacji użytkownika
 from django.template.context_processors import csrf #generator unikallnego tokena
 from django.contrib.auth.forms import UserCreationForm #formularz tworzenia nowego użytkownika
+from notifications.models import Notifications
 
 class Login(View):
     def get(self, request):
@@ -23,7 +24,8 @@ def auth_view(request):
         return HttpResponseRedirect('/accounts/invalid/')
 
 def loggedin(request):
-    return render(request, 'loggedin.html', {'user_name' : request.user.username}) #przekazywanie zmiennej z parametrem z bazy danych user.username
+	n = Notifications.objects.filter(user=request.user, viewed=False)
+	return render(request, 'loggedin.html',{'user_name' : request.user.username, 'notification': n}) #przekazywanie zmiennej z parametrem z bazy danych user.username
 
 def logout(request):
     auth.logout(request)

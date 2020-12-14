@@ -3,6 +3,16 @@
 {% block article %}
 
 <h3>Witaj: {{ user_name }}</h3>
-<p><a href='/accounts/logout/'>Wyloguj się</a></p>
 
-{% endblock article %}
+{% if notification.count > 0 %}
+
+<h4>Powiadomienia</h4>
+
+{%  for n in notification %}
+<p><a href="/notification/show/{{n.id}}">{{ n.title }}</a></p>
+{% endfor %}
+
+{% endif %}
+
+<p><a href="/accounts/logout/">Wyloguj się</a></p>
+{% endblock %}

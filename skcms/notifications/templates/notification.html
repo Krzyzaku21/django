@@ -1,0 +1,7 @@
+{% extends "main.html" %}
+
+{% block article %}
+<h3>{{ notification.title }}</h3>
+<p>{{ notification.content }}</p>
+<p><a href="/notification/delete/{{ notification.id }}">Oznacz jako przeczytane</a></p>
+{% endblock %}
