@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+
+{% block article %}
+
+<form action="/accounts/profile/" method="post" class="form horizontal well">{% csrf_token %}
+    {{ form.as_p }}
+    <input type='submit' class="btn btn-inverse" value='Aktualizuj'>
+
+</form>
+
+{% endblock article %}
