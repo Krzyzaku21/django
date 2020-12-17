@@ -1,0 +1,30 @@
+@import 'reset.css';
+body {
+    /* background-color:rgb(135, 84, 84); */
+    background-color:rgba(83, 105, 76, 0.755);
+}
+.top_case ul{
+    background-color:#ffffff;
+    margin-top: -8px;
+    margin-left: -8px;
+    margin-right: -8px;
+    text-align: center;
+}
+.top_nav a i{
+    width: 8%;
+    display: inline-block;
+    margin-top: +4px;
+    margin-bottom: 4px;
+    color: rgb(135, 84, 84);
+    font-size: 20px;
+    /* text-shadow: 0 0 5px rgb(0, 0, 0); */
+    /* filter: drop-shadow(5 5 1px rgb(158, 158, 158)); */
+    /* -webkit-filter: drop-shadow(0 0 2px #000); */
+    padding: 8px;
+    outline: 0;
+    white-space: normal;
+}
+.top_nav a i:hover {
+    background-color: rgba(189, 189, 189, 0.296);
+    border-radius: 8px;
+}
