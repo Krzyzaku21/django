@@ -1,0 +1,18 @@
+.flex_container {
+    display: flex;
+    background-color: red;
+    flex-wrap: wrap; /* zawijanie z lewej */
+}
+.flex_container > div {
+    width: 100px;
+    margin: 10px;
+}
+.flex_container2 {
+    display: flex;
+    background-color: rgb(47, 0, 255);
+    flex-flow: row-reverse wrap; /* zawijanie z prawej */
+}
+.flex_container2 > div {
+    width: 100px;
+    margin: 10px;
+}

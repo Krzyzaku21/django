@@ -1,0 +1,13 @@
+.flex_container {
+    display:flex;
+    background-color: lightgray;
+    justify-content: center; /* wyśrodkowanie elementów responsywnie */
+}
+.flex_container > div {
+    background-color: blue;
+    margin: 15px;
+    padding: 25px;
+}
+img {
+    max-width: 100%; /* automatycznie zmniejszanie lub powiekszanie obrazków w css */
+}

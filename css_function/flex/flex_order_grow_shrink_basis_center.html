@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='flex_order_grow_shrink_basis_center.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <div class="flex_container1">
+        <div style='order: 4;'>Element one</div> <!--order - ustalanie kolejnosci elementów-->
+        <div style='order: 3;'>Element two</div>
+        <div style='order: 2;'>Element three</div>
+        <div style='order: 1;'>Element four</div>
+    </div>
+    <div class="flex_container2">
+        <div style='flex-grow: 4;'>Element one</div> <!-- grow - wielkość elementu -->
+        <div style='flex-grow: 1;'>Element two</div>
+        <div style='flex-grow: 1;'>Element three</div>
+        <div style='flex-grow: 1;'>Element four</div>
+    </div>
+    <div class="flex_container3">
+        <div>Element one</div>
+        <div>Element two</div>
+        <div>Element three</div>
+        <div>Element four</div>
+        <div>Element five</div>
+        <div>Element six</div>
+        <div style='flex-shrink: 2'>Element seven</div> <!-- shrink - maleje element odwrtnie do grow -->
+    </div>
+    <div class="flex_container4">
+        <div style='flex-basis: 300px'>Element one</div> <!-- basis - domyślna wartość elementu -->
+        <div>Element two</div>
+        <div>Element three</div>
+        <div>Element four</div>
+    </div>
+    <div class="flex_container5">
+        <div style='align-self: center;'>Element one</div> <!-- align-self - wysrodkowany względem pozostałych -->
+        <div>Element two</div>
+        <div>Element three</div>
+        <div>Element four</div>
+    </div>
+</body>
+</html>

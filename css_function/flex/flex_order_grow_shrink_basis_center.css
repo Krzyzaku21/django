@@ -1,0 +1,70 @@
+.flex_container1 {
+    display: flex; /* typ flex */
+    align-items: stretch; /* zawiniety tekst */
+    background-color: blue;
+}
+.flex_container1 > div {
+    background-color: brown;
+    color: white;
+    width: 100px; /* serokość */
+    text-align: center; /* centrowanie tekstu */
+    line-height: 65px; /* wysokość tekstu */
+    font-size: 25px; /* wielkość czcionki */
+    margin: 2px;
+}
+.flex_container2 {
+    display: flex; /* typ flex */
+    align-items: stretch; /* zawiniety tekst */
+    background-color: rgb(238, 255, 0);
+}
+.flex_container2 > div {
+    background-color: rgb(24, 85, 29);
+    color: white;
+    width: 100px; /* serokość */
+    text-align: center; /* centrowanie tekstu */
+    line-height: 65px; /* wysokość tekstu */
+    font-size: 25px; /* wielkość czcionki */
+    margin: 2px;
+}
+.flex_container3 {
+    display: flex; /* typ flex */
+    align-items: stretch; /* zawiniety tekst */
+    background-color: rgb(255, 89, 0);
+}
+.flex_container3 > div {
+    background-color: rgb(201, 2, 135);
+    color: white;
+    width: 450px; /* serokość */
+    text-align: center; /* centrowanie tekstu */
+    line-height: 65px; /* wysokość tekstu */
+    font-size: 25px; /* wielkość czcionki */
+    margin: 2px;
+}
+.flex_container4 {
+    display: flex; /* typ flex */
+    align-items: stretch; /* zawiniety tekst */
+    background-color: rgb(80, 80, 255);
+}
+.flex_container4 > div {
+    background-color: brown;
+    color: white;
+    width: 100px; /* serokość */
+    text-align: center; /* centrowanie tekstu */
+    line-height: 65px; /* wysokość tekstu */
+    font-size: 25px; /* wielkość czcionki */
+    margin: 2px;
+}
+.flex_container5 {
+    display: flex; /* typ flex */
+    align-items: stretch; /* zawiniety tekst */
+    background-color: rgb(30, 255, 0);
+    height: 300px;
+}
+.flex_container5 > div {
+    background-color: rgb(59, 188, 211);
+    color: white;
+    width: 100px; /* serokość */
+    text-align: center; /* centrowanie tekstu */
+    line-height: 65px; /* wysokość tekstu */
+    font-size: 25px; /* wielkość czcionki */
+}
