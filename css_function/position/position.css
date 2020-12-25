@@ -1,0 +1,26 @@
+.parent{
+    background-color: rgb(25, 0, 255);
+    position: relative;
+    height: 600px;
+}
+.child-one{
+    position: relative; /* możesz przemieszczać na ekranie w left, right, top, bottom */
+    left: 10px;
+    background-color: red;
+}
+.child-two{
+    position: absolute; /* absolute ustawia absolutną pozycje na ekranie po za ekranem również, współgra z relative gdy ustawimy w parent */
+    background-color: rgb(242, 255, 0);
+    top: 0px;
+}
+.child-three{
+    background-color: rgb(13, 255, 0);
+    position: fixed; /* pozostaje na stronie nawet po scrollowaniu ekranu */
+    right: 0px;
+    top: 0px;
+}
+.child-four{
+    background-color: pink;
+    position: sticky; /* pozostanie na wierzchu w zalezności gdzie go umieścimy */
+    top: 0px;
+}

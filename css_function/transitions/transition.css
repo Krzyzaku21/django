@@ -1,0 +1,25 @@
+div {
+    margin: 10px;
+}
+#div1{
+    width: 150px;
+    height:150px;
+    background-color: red;
+    transition: background-color 1s;
+}
+#div1:hover{
+    background-color: green;
+}
+#div2 {
+    height: 100px;
+    width: 100px;
+    border: 1px solid;
+    transition-property: height, width;
+    transition-duration: 1s, 500ms;
+    transition-timing-function: linear;
+    transition-delay: 0s, 500ms;
+}
+#div2:hover {
+    height: 200px;
+    width: 200px;
+}

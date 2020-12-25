@@ -1,0 +1,31 @@
+ul {
+    list-style-type: none; /* usunięcie kropek w liście */
+}
+li:before { /* before wstawienie przed tektem */
+    content: "";
+    display: inline-block;
+    margin-right: 10px;
+    height: 10px;
+    width: 10px;
+    background: linear-gradient(red, blue);
+}
+li:after {
+    content: " aaaa";
+}
+
+div::after {
+    content: 'after';
+    color: red;
+    border: 1px solid red;
+}
+div {
+    color: black;
+    border: 1px solid black;
+    padding: 1px;
+    margin: 10px 310px 10px 10px;
+}
+div::before {
+    content: 'before';
+    color: green;
+    border: 1px solid green;
+}

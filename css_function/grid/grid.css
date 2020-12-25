@@ -1,0 +1,26 @@
+div[data-color] {
+    color: red;
+    }
+.container {
+    display: grid;
+}
+.container .item1 {
+    grid-column: 1;
+    grid-row: 1;
+    background-color: red;
+}
+.container .item2 {
+    grid-column: 2;
+    grid-row: 1;
+    background-color: rgb(81, 255, 0);
+}
+.container .item3 {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: rgb(0, 238, 255);
+}
+.container .item4 {
+    grid-column: 2;
+    grid-row: 2;
+    background-color: rgb(255, 0, 212);
+}

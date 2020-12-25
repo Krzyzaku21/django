@@ -1,0 +1,49 @@
+div[data-color] {
+    color: red;
+    }
+.c {
+    color: blue;
+}
+* {
+    margin: 10px;
+    background-color: green;
+    /* overflow: hidden; */ /* zawijanie strony */
+   }
+.d, .e {
+    color: cyan;
+    font-size: 30px;
+    font-family: : Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+div > a {
+    background-color: pink;
+}
+#a1 , #a2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+div .lamp {
+    color: red;
+}
+ul ol li{
+    color: yellow;
+}
+ul ol{
+    background-color: red;
+    width: 100px;
+}
+div.sss h1.qqq {
+    color: cyan;
+}
+.box {
+    display: flex;
+    height: 100px;
+    width: 100px;
+    padding: 20px;
+    margin: 50px;
+    border: 10px solid black;
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}

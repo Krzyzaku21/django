@@ -1,0 +1,90 @@
+* { /* change for everything single element */
+    font-size: 20px;
+}
+div { /* 'typ' selektora  or li span etc... */
+    background-color: pink;
+}
+.cyan { /* 'klasa' selektora  or li span etc... */
+    background-color: rgb(0, 255, 242);
+}
+#green_id { /* 'id' selektora  or li span etc... */
+    background-color: rgb(51, 255, 0);
+}
+/* kombinacje z selektorami */
+div.red.cyan { /* konkretne div'y konkretnej klasy cyan i klasy red*/
+    font-style: italic;
+    border: 3px solid red;
+    color: red;
+}
+a, span, li.blue { /* selektor różnych typów */
+    background-color:royalblue;
+}
+ul  > li { /* wszystkie dzieci z jednego rzędu li w ul nastepujące tuż po*/
+    color: red;
+    list-style-type: decimal; /* lista od 1 do 4 */
+}
+div b { /* element b w elemencie div niekoniecznie bezposrednie dziecko */
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+li.blue ~ li { /* wszystkie elementy występujące po li.blue dla li */
+    background-color: rgb(249, 253, 0);
+}
+li.orange + li { /* konkretne dziecko li po elemencie li.orange */
+    background-color: rgb(183, 0, 255);
+}
+/* sudo classes */
+li:hover { /* hover najezdzane kursorem */
+    color: rgb(0, 8, 255);
+}
+input:required { /* required - element z automatu kliknięty */
+    background-color: red;
+}
+input:focus { /* focus - skupiamy sie na elemencie klikając go */
+    background-color: red;
+}
+input:checked { /* checked - okienko zaznaczania */
+    margin: 20px;
+}
+input:disabled { /* checked - okienko ze słowem które jest ustawione domyślnie */
+    margin: 20px;
+}
+li:first-child { /* first-child - pierwsze dziecko z typu li */
+    border: 5px solid red;
+}
+li:last-child { /* last-child - ostatnie dziecko z typu li */
+    border: 5px solid rgb(0, 8, 255);
+}
+li:nth-child(4) { /* nth-child(numer, 2n - co drugi etc) - wybór numeru dziecka li */
+    border: 5px solid rgb(0, 255, 208);
+}
+span:only-child { /* tylko span który jest dzieckiem */
+    border: 5px solid rgb(255, 0, 0);
+}
+span:last-of-type{ /* ostatni span w każdym zagnieżdzeniu, odwrotnosc first-of-type */
+    border: 5px solid rgb(255, 132, 0);
+}
+li:nth-of-type(5){ /* nth-of-type - typ o numerze... */
+    border: 5px solid rgb(85, 255, 0);
+}
+span:only-of-type { /* typy span wszystkie */
+    color:rgb(51, 255, 0)
+}
+li:not(.blue){ /* wszystkie z wyjątkiem li z klasą blue */
+    font-style: oblique;
+}
+/*sudo elements */
+div.cyan::before{ /* ::before element przed divem klasy cyan */
+    content: 'before ';
+    background: yellow;
+}
+div.cyan::after{ /* ::after element po divie klasy cyan */
+    content: ' after ';
+    background: rgb(34, 0, 255);
+}
+/* sudo arguments */
+[data-cyan=true] { /* div data-cyan - dla argumentu  */
+    background: red;
+}
