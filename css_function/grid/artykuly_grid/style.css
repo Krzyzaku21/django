@@ -1,0 +1,25 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* repeat - budowanie automatycznie, auto-fill - powiekszana przegladarka beda sie wypełniać, minmax(200px - minimalna wielkosc, 1fr - kazda kolumna to jeden element calosci 1/1 1/2 zalezy od ilosci kolumn) */
+    grid-gap: 20px;
+    align-items: stretch;
+}
+.grid > article {
+    border: 1px solid gray;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
+}
+/* oscylowanie obrazków */
+.grid > article img {
+    max-width: 100%;
+}
+.text {
+    padding: 0 20px 20px;
+}
+.text > button {
+    background-color: gray;
+    border: 0;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border-radius: 20px;
+}

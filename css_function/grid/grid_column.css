@@ -1,0 +1,17 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto; /* ułożenie w 3 kolumnach */
+    grid-column-gap: 20px; /* przerwy między kolumnami grid */
+    grid-row-gap: 20px; /* przerwy między wierszami grid */
+    /* grid-gap: 30px 30px; to samo co grid-column-gap i grid-row-gap */
+}
+.grid-item{
+    background-color: coral;
+    border: 3px solid black;
+    padding: 20px;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

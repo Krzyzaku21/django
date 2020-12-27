@@ -1,0 +1,26 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: 100px 130px auto 60px;
+    grid-template-rows: 80px 200px; /* wielkość wierszy */
+    grid-gap: 5px 5px;
+    background-color: blue;
+    padding: 5px;
+    /* justify-content: start; poczatek lewy strony */
+    /* justify-content: end; koniec prawa strona  */
+    /* justify-content: center;  wszystkie gridy w środku */
+    /* justify-content: space-evenly; wszystkie kolumny ułożone odpowiednio od siebie */
+    /* justify-content: space-around; elemnty od siebie ale lewy i prawy blizej krawedzi */
+    /* justify-content: space-between; elementy miedzy sobą ale lewy i prawy tuz przy krawedzi strony  */
+}
+.grid-item{
+    background-color: red;
+    border: 3px solid yellow;
+    padding: 10px;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+}

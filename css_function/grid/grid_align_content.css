@@ -1,0 +1,27 @@
+.grid-container {
+    background-color: yellow;
+    display: grid;
+    padding: 5px;
+    grid-template-columns: auto auto auto;
+    height: 600px;
+    grid-gap: 23px 17px;
+    /* align-content: center; wysrodkowanie wierszy  */
+    /* align-content: space-evenly; odleglosc miedzy wierszami rowna */
+    /* align-content: space-around; gorny i dolny blizej poczatku strony */
+    /* align-content: space-between; gorny i dolny przy krawedzi strony  */
+    /* align-content: start; blizej góry */
+    /* align-content: end; blizej dolu */
+
+}
+.grid-item{
+    background-color: tomato;
+    border: 5px groove rgb(94, 255, 0);
+    padding: 15px;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+}

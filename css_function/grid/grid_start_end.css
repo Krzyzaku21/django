@@ -1,0 +1,29 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 35px 25px;
+    background-color: blue;
+    padding: 15px;
+}
+.grid-item{
+    background-color:red;
+    border: 3px solid yellow;
+    padding: 30px;
+}
+.item1 {
+    grid-column-start: 1; /* zajmuje kolumny od 1 do 3 czyli 2 pola*/
+    grid-column-end: 3;
+}
+.item5{
+    grid-column-start: 1; /* zajmuje kolumny od 1 do 4  czyli 3 pola*/
+    grid-column-end: 4;
+}
+.item4{
+    grid-column-start: 2; /* zajmuje kolumny od 2 do 4  czyli 2 pola*/
+    grid-column-end: 4;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

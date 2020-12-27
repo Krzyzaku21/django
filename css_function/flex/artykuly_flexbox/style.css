@@ -1,0 +1,27 @@
+.cards{
+    display: flex;
+    flex-wrap: wrap; /* elementy sie zawijaja pod siebie */
+    align-items: stretch; /* tekst sie zawija */
+}
+.card{
+    /* flex: grown; łączy ze soba 3 wlasciwosci grown - rosnie szybciej niz pozostale */
+    /* flex: stretch; stretch - dany element sie kurczy szybciej niz pozostale */
+    /* flex: width; width - szerokosc */
+    flex: 0 0 200px; /* 0 - nie rosnie , 0 - nie kurczy się  200px - elementy maja po 200pixeli szerokosci*/
+    margin: 10px;
+    border: 2px solid black;
+    box-shadow: 3px 2px 6px 0px rgba(77, 56, 56, 0.4); /* cienie */
+}
+.card img{
+    max-width: 100%; /* responsywnosc w szerokosci */
+}
+.card .text {
+    padding: 0px 25px 25px;
+}
+.card .text > button {
+    background-color: gray;
+    border: 0;
+    color: white;
+    padding: 12px;
+    width: 100%;
+}

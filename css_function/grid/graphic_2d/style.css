@@ -1,0 +1,80 @@
+.header {
+    display: flex;
+    align-items: center;
+}
+@media (min-width: 700px){
+    .leading {
+    display: flex;
+    align-items: center;
+    }
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    grid-gap: 30px;
+}
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+header {
+    padding: 10px;
+    font-size: 10px;
+    color:white;
+    background-color: #333;
+}
+.logo {
+    height: 50px;
+    margin-right: 20px;
+    vertical-align: bottom;
+}
+.heading {
+    display: inline-block;
+}
+.leading {
+    height: 240px;
+    margin-bottom: 20px;
+    padding: 50px;
+    color: white;
+    background: url('../../img/image2.jpg') center red no-repeat;
+    background-size: cover;
+    color: white;
+    text-shadow: 0px 0px 5px #000;
+
+}
+.leading-bigtext {
+    margin-right: 60px;
+    font-weight: bold;
+    font-size: 10vw; /* vw czcionka dopasujaca sie do wielkosci strony */
+}
+@media (min-width: 700px){ /* oscylacja - czyli dostosowanie argumentów do małych ekranów */
+    .leading-bigtext{
+        font-size: 100px;
+    }
+}
+.leading-text {
+    max-width: 900px;
+    font-size: 1.2em;
+    line-height: 1em; /* wysokosc czcionki */
+}
+.cards {
+    max-width: 960px;
+    margin: 0 auto 30px;
+}
+article {
+    position: relative;
+}
+.article-img {
+    height: 200px;
+    width: 100%;
+    object-fit:cover /* kontener powiekszy sie lub zmniejszy obrazek bedzie sie dostosowywac */
+}
+.article-title{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    padding: 5px 0 5px;
+    margin: 0 0 10px;
+    color: white;
+    background-color:rgb(255, 140, 0);
+    justify-content: left;
+}

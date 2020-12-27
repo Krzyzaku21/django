@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang='pl'>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='description' content=''>
+        <meta name='keywords' content=''>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' href='form.css'>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <title>Title</title>
+    </head>
+    <body>
+        <form class="myForm">
+            <div class="row">
+                <div class='column'>
+                    <div class='input-group'>
+                        <label for='customer_name'>Name</label>
+                        <input id='customer_name'>
+                    </div>
+                    <div class='input-group'>
+                        <label for='phone_number'>Phone</label>
+                        <input type='tel' id='phone_number'>
+                    </div>
+                    <div class='input-group'>
+                        <label for='email_address'>Email</label>
+                        <input type='email' id='email_address'>
+                    </div>
+                    <div class='input-group'>
+                        <label for='pickup_time'>Pickup Date/Time</label>
+                        <input type='datetime-local' id='pickup_time'>
+                    </div>
+                    <div class='input-group'>
+                        <label for='pickup_place'>Pickup Place</label>
+                        <select id='pickup_place'>
+                            <option value='' selected='selected'>Select one</option>
+                            <option value='town_hall'>town hall</option>
+                            <option value='telepathy'>we'll guess</option>
+                        </select>
+                    </div>
+                    <div class='input-group'>
+                        <label for='dropoff_place'>Dropoff Place</label>
+                        <input type='text' id='dropoff_place' list='destinations'>
+                        <datalist id='destinations'>
+                            <option value='Airport'></option>
+                            <option value='Beach'></option>
+                            <option value='House One'></option>
+                        </datalist>
+                    </div>
+                </div>
+                <div class='column'>
+                    <fieldset class='taxi'>
+                        <legend>Which taxi do you reuire?</legend>
+                        <label><input type='radio' id='taxi_car' value='car'>Car</label>
+                        <label><input type='radio' id='taxi_van' value='van'>Van</label>
+                        <label><input type='radio' id='taxi_tuk' value='tuk'>Tuk</label>
+                    </fieldset>
+                    <fieldset class='extras'>
+                        <legend>Extras</legend>
+                        <label><input type='checkbox' id='extras_baby' value='baby'>Baby Seat</label>
+                        <label><input type='checkbox' id='extras_wheel' value='wheel'>Wheel</label>
+                        <label><input type='checkbox' id='extras_tip' value='tip'>Tip</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class='row'>
+                <button id='submit'>Submit</button>
+            </div>
+        </form>
+    </body>
+</html>

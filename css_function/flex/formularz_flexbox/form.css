@@ -1,0 +1,50 @@
+.myForm{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(225, 143, 21);
+    border-radius: 3px;
+    padding: 1em;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    background-color: yellow;
+}
+.input-group{
+    display: flex;
+    background-color: rgb(163, 93, 93);
+}
+.input-group > label{
+    margin-right: 1em;
+    padding: .5em 0;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.myForm input, .myForm select{
+    padding: .6em;
+    margin-bottom: 2em;
+    flex: 6;
+    margin: 10px;
+}
+.myForm button{
+    padding: 2em;
+    background-color: gray;
+    color: white;
+    border: 0px;
+    width: 200px;
+}
+.myForm fieldset{
+    border: 0;
+}
+.taxi > label, .extras > label{
+    display: inline-block;
+    font-size: 10px;
+}

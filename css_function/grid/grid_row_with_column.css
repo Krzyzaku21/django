@@ -1,0 +1,28 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 10px;
+    background-color: aquamarine;
+    padding: 15px;
+}
+.grid-container > div {
+    background-color: chocolate;
+    padding: 15px;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.item1 {
+    /* grid-column: 1 / 5; kolumna od 1 do 5 pola bez pola 5 */
+    /* grid-column: 1 / span 3; kolumna siega do 3 włącznie z  */
+    /* grid-row: 1 / 3; kolumna do 3 wiersza którego nie widac */
+    grid-row: 1 / span 2; /* kolumna zawiera dwa wiersze 1 i 2 */
+}
+.item3{
+    /* grid-area: 1 / 3 / 3 / 5; ktory_wiersz/która_kolumna/do którego wiersza/do której kolumny */
+    grid-area: 1 / 3 / span 2 / span 2; /* to co wyzej ale ze span */
+}
