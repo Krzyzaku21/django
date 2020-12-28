@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://meyerweb.com/eric/tools/css/reset/reset.css"
+        />
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <title>Title</title>
+    </head>
+    <body>
+        <form class="myForm">
+            <label for="customer_name">Name </label>
+            <input
+                type="text"
+                name="customer_name"
+                id="customer_name"
+                required
+            />
+            <label for="email_address">Email </label>
+            <input type="email" name="email_address" id="email_address" />
+            <label for="phone">Phone </label>
+            <input type="tel" name="phone" id="phone" />
+            <div id="comment-box">
+                <label for="comments">Comments</label>
+                <textarea
+                    name="comments"
+                    id="comments"
+                    maxlength="500"
+                ></textarea>
+            </div>
+            <button>Submit</button>
+        </form>
+    </body>
+</html>

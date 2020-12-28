@@ -1,0 +1,70 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+.image01 {
+    background-image: url("../../img/kwiat1.png");
+    flex: 1;
+}
+.image02 {
+    background-image: url("../../img/kwiat2.png");
+    flex: 1;
+}
+.image03 {
+    background-image: url("../../img/kwiat3.png");
+    flex: 2;
+}
+.image04 {
+    background-image: url("../../img/kwiat4.png");
+    flex: 1;
+}
+.image05 {
+    background-image: url("../../img/kwiat5.png");
+    flex: 2;
+}
+.image06 {
+    background-image: url("../../img/kwiat6.png");
+    flex: 2;
+}
+.image07 {
+    background-image: url("../../img/kwiat7.png");
+    flex: 1;
+}
+.image08 {
+    background-image: url("../../img/kwiat8.png");
+    flex: 3;
+}
+.image09 {
+    background-image: url("../../img/kwiat9.png");
+    flex: 1;
+}
+.image10 {
+    background-image: url("../../img/kwiat10.png");
+}
+.image10,
+.image11,
+.image12 {
+    flex: 1;
+}
+.image11 {
+    background-image: url("../../img/kwiat11.png");
+}
+.image12 {
+    background-image: url("../../img/kwiat12.png");
+}
+.image-row {
+    display: flex;
+}
+.image-row div {
+    margin: 4px;
+    height: 240px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+@media screen and (max-width: 400px) {
+    .image-row {
+        flex-direction: column;
+    }
+}
