@@ -1,0 +1,6 @@
+#focus-example > .extra {
+    display: none;
+}
+#focus-example:focus > .extra {
+    display: block;
+}

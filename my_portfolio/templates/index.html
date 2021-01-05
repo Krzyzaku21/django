@@ -1,74 +1,225 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="utf-8">
-    <title>Pookiepook</title>
-    <meta name="description" content="Strona poświęcona ludziom ceniącym sobie równowagę i spokój w zyciu">
-    <meta name="keywords" content="pookiepook, balance, places, nature, healthy lifestyle">
-    <link rel="stylesheet" type="text/css" href="\my_portfolio\static\css\main2.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</head>
-
-<body>
-    <!--HTML5 WEBSITE-->
-    <div id="wrapper">
-        <!--LEFT MENU-->
-        <div class="left-menu">
-            <!--LOGO-->
-            <div class="logo">
-                <a href="index.html" class="logo logo-banner text-center">
-                    <span class="logo-banner-image">
-                        <img src="adres loga.png" height="24">
-                    </span>
-                </a>
-            </div>
-            <!--END LOGO-->
-            <!--NAV MENU-->
-            <div class="nav-menu">
-                <div class="nav-menu-height">
-                    <div class="nav-menu-height-auto"></div>
-                </div>
-                <div class="nav-mask">
-                    <div class="nav-mask-set" style="right: 0px; bottom: 0px;">
-                        <div class="nav-mask-set-content" style="height: 100%; overflow: hidden scroll;">
-                            <div class="nav-mask-set-content-line" style="padding: 0px;">
-                                <div id="nav-menu">
-                                    <ol id="nav-menu-bar">
-                                        <li class="nav-menu-bar-title">Profile</li>
-                                        <li class="nav-menu-bar-active">
-                                            <a href="#navKonto" data-toggle="collapse" class="waves-effect" aria-expanded="false">
-                                                <i class="ri-dashboard-line"></i>
-                                                <span>Konto</span>
-                                            </a>
-                                            <div class="collapse" id="navKonto">
-                                                <ul id="nav-menu-second">
-                                                    <li>
-                                                        <a href="aaa.html">Wiadomości</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="aaa.html">Bibloteka</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="aaa.html">Coś</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li class="nav-menu-bar-title">Appki</li>
-                                        <li>
-                                            <a href="aaa.html">
-                                                <i class="ri-building-4-line"></i>
-                                                <span>Companies</span>
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../static/css/header.css"
+        />
+        <link rel="stylesheet" type="text/css" href="../static/css/nav.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/aside.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../static/css/footer.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://meyerweb.com/eric/tools/css/reset/reset.css"
+        />
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <title>Krzyzaku website</title>
+    </head>
+    <body>
+        <!--! BODY-->
+        <!--* HEADER MENU-->
+        <header>
+            <div class="header-box">
+                <div class="menu">
+                    <!--& LOGO BOX-->
+                    <div class="logo-box">
+                        <span>
+                            <a href="#">
+                                <img
+                                    class="logo-1"
+                                    src="../static/img/LOGO150x40.png"
+                                />
+                                <img
+                                    class="logo-2"
+                                    src="../static/img/LOGO40x40.png"
+                                />
+                            </a>
+                        </span>
+                    </div>
+                    <!--& END LOGO BOX-->
+                    <!--& PANELS BOX-->
+                    <div class="panels-box panel-0">
+                        <div class="search-box">
+                            <a class="search-btn" href="#">
+                                <i class="fas fa-search"></i>
+                            </a>
+                            <input
+                                class="search-txt"
+                                type="text"
+                                placeholder="Type to search"
+                            />
+                        </div>
+                        <div class="panel panel-1">
+                            <a href="#.html" class="panels-link"
+                                ><span class="panel-txt">About</span>
+                                <span class="panel-icon"
+                                    ><i class="fas fa-globe-europe"></i
+                                ></span>
+                            </a>
+                        </div>
+                        <div class="panel panel-2">
+                            <a href="#.html" class="panels-link"
+                                ><span class="panel-txt">Blog</span>
+                                <span class="panel-icon"
+                                    ><i class="fas fa-dove"></i
+                                ></span>
+                            </a>
+                        </div>
+                        <div class="panel panel-3">
+                            <a href="#.html" class="panels-link"
+                                ><span class="panel-txt">Gallery</span>
+                                <span class="panel-icon"
+                                    ><i class="fas fa-camera-retro"></i
+                                ></span>
+                            </a>
+                        </div>
+                        <div class="panel panel-4">
+                            <a href="#.html" class="panels-link"
+                                ><span class="panel-txt">Projects</span>
+                                <span class="panel-icon"
+                                    ><i class="fas fa-chart-pie"></i
+                                ></span>
+                            </a>
+                        </div>
+                        <div class="panel panel-5">
+                            <a href="#.html" class="panels-link"
+                                ><span class="panel-txt">References</span>
+                                <span class="panel-icon"
+                                    ><i class="fas fa-universal-access"></i
+                                ></span>
+                            </a>
                         </div>
                     </div>
+                    <!--& END PANELS BOX-->
+                    <!--& OPTIONS BOX-->
+                    <div class="options-box">
+                        <div class="panel panel-6">
+                            <div class="user-box">
+                                <img
+                                    src="../../css_function/img/kwiat10.png"
+                                    alt="user-image"
+                                    class="user-class"
+                                />
+                                <span class="user-name">
+                                    User Name<i class="user-icon"></i>
+                                </span>
+                            </div>
+                            <form class="bell-box" type="button" tabindex="0">
+                                <a class="bell-item">
+                                    <i class="fas fa-cog"></i>
+                                </a>
+                                <div class="log-panel">
+                                    <ul>
+                                        <li>
+                                            <div class="log-text">
+                                                <label
+                                                    for="log-log"
+                                                    class="log-txt"
+                                                    >Login</label
+                                                >
+                                                <input
+                                                    type="text"
+                                                    name="name"
+                                                    class="log-name log-docker"
+                                                    placeholder="Login lub E-mail"
+                                                />
+                                            </div>
+                                            <div class="log-text">
+                                                <span class="log-txt"
+                                                    >Hasło</span
+                                                >
+                                                <input
+                                                    type="password"
+                                                    name="password"
+                                                    class="log-pass log-docker"
+                                                    placeholder="Hasło"
+                                                />
+                                            </div>
+                                            <fieldset class="log-button">
+                                                <p>
+                                                    <input
+                                                        type="submit"
+                                                        class="log-btn"
+                                                        value="Zaloguj się"
+                                                    />
+                                                </p>
+                                            </fieldset>
+                                        </li>
+                                        <li class="log-or">
+                                            <span class="">lub</span>
+                                        </li>
+                                        <li class="fb-btn">
+                                            <a class="log-fb" href="#"
+                                                ><i
+                                                    class="fab fa-facebook-square"
+                                                ></i>
+                                                <span
+                                                    >Zaloguj przez
+                                                    Facebook</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li class="google-btn">
+                                            <a class="log-google" href="#"
+                                                ><i class="fab fa-google"></i>
+                                                <span
+                                                    >Zaloguj przez Google</span
+                                                ></a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a
+                                                id="register"
+                                                class="register"
+                                                href="#"
+                                                title="Zarejestruj się"
+                                                ><span>Nie masz konta?</span>
+                                                Zarejestruj się.</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--& END OPTIONS BOX-->
                 </div>
             </div>
+        </header>
+        <!--* END HEADER MENU-->
+        <div class="container">
+            <!--* NAV MENU-->
+            <nav>NAV</nav>
+            <!--* END NAV MENU-->
+            <!--* MAIN BAR-->
+            <main>
+                MAIN
+                <!--@ ARTICLE  -->
+                <article>
+                    <!-- SECTION-->
+                    <section></section>
+                    <!-- END SECTION-->
+                </article>
+                <!--@ END ARTICLE  -->
+            </main>
+            <!--* END MAIN BAR-->
+            <!--* A-SIDE MENU-->
+            <aside>ASIDE</aside>
+            <!--* END A-SIDE MENU-->
         </div>
-
-</body>
+        <footer></footer>
+    </body>
+    <!--! END BODY-->
 </html>

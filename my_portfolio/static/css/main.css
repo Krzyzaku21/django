@@ -1,0 +1,19 @@
+/* ! BODY--> */
+:root {
+    --white-background: #f3f3f3;
+    --fonts-color: #e2e2e2;
+    --green: #3a8c43;
+    --green2: #b0c871;
+    --green3: #689f60;
+    --green4: rgba(70, 133, 54, 0.542);
+    --red: #b14633;
+    --silver: #e6e6e6;
+    --blue: #3b5b98;
+    --dark: #1c1e21;
+}
+/* * NAV MENU */
+main {
+    flex-grow: 4;
+}
+/* * END MENU */
+/* ! BODY--> */
