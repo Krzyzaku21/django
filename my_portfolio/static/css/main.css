@@ -14,6 +14,14 @@
 /* * NAV MENU */
 main {
     flex-grow: 4;
+    background-color: sienna;
+}
+article {
+    height: 10%;
+    background-color: var(--red);
+}
+.scrollable {
+    overflow-y: auto;
 }
 /* * END MENU */
 /* ! BODY--> */

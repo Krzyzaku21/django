@@ -1,25 +1,34 @@
 /* ! BODY--> */
+html,
 body {
-    margin: 0px;
+    margin: 0;
+    height: 100%;
+    width: 100%;
     background-color: var(--white-background);
 }
-.container {
+body {
     display: flex;
-    align-items: stretch;
-    width: 100%;
+    flex-direction: column;
+}
+body > * {
+    flex: 1 100%;
+}
+header {
+    display: flex;
+    max-height: 50px;
+}
+.container {
     height: 100%;
-    background-color: var(--blue);
+    display: flex;
+    align-content: stretch;
+    width: 100%;
+    background-color: var(--white-background);
+    flex: 1 1 100%;
 }
 .container > nav,
 .container > main,
 .container > aside {
-    background-color: rgb(24, 85, 29);
-    color: white;
-    width: 100px; /* serokość */
-    text-align: center; /* centrowanie tekstu */
-    line-height: 65px; /* wysokość tekstu */
-    font-size: 25px; /* wielkość czcionki */
-    margin: 2px;
+    margin: 0px 2px 0px 1px;
 }
 :root {
     --white-background: #f3f3f3;

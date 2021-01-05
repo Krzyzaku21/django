@@ -19,6 +19,7 @@
 }
 .container aside {
     flex-grow: 1;
+    background-color: var(--green);
 }
 /* * END MENU */
 /* ! BODY--> */
