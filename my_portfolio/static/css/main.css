@@ -16,7 +16,7 @@
     .scrollable {
         overflow-y: scroll;
         height: 350px;
-        width: 85%;
+        width: 100%;
     }
     .article-box img {
         width: 85%;
@@ -28,7 +28,16 @@
     }
     .art {
         overflow-y: none;
-        width: 85%;
+        width: 100%;
+    }
+    .pagination {
+        display: flex;
+    }
+    .pagination a {
+        padding: 2px 1px;
+    }
+    .pagination a.active {
+        width: 5px;
     }
 }
 main {
@@ -91,7 +100,6 @@ article .article-box {
     background-color: var(--red);
     padding: 10px;
     margin: 10px;
-    float: right;
     border-radius: 20px;
     font-size: 13px;
     font-weight: 400;
@@ -99,31 +107,42 @@ article .article-box {
     text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.2);
     font-style: italic;
     color: var(--white-background);
+    float: right;
 }
 /* Pagination links */
 .pagination {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    padding: 10px;
 }
 .pagination a {
     color: black;
-    padding: 8px 16px;
+    padding: 6px 8px;
     text-decoration: none;
     transition: background-color 0.3s;
+    align-items: stretch;
 }
 
 /* Style the active/current link */
 .pagination a.active {
     background-color: dodgerblue;
     color: white;
+    border-radius: 20px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
 }
 
 /* Add a grey background color on mouse-over */
 .pagination a:hover:not(.active) {
     background-color: #ddd;
+    width: 5px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
 }
 article .gallery-box {
-    background-color: var(--red);
+    background-color: var(--white-background);
     padding: 5px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -133,6 +152,7 @@ article .gallery-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: baseline;
+    grid-gap: 5px;
 }
 .image-row a > img {
     border-radius: 5px;
