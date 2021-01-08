@@ -22,22 +22,25 @@ header {
     display: flex;
     align-content: stretch;
     width: 100%;
-    background-color: var(--white-background);
+    background-color: var(--white-background2);
     flex: 1 1 100%;
 }
 .container > nav,
 .container > main,
 .container > aside {
-    margin: 0px 2px 0px 1px;
+    margin: 0px 5px 5px 5px;
 }
 :root {
     --white-background: #f3f3f3;
+    --white-background2: #1c1e211c;
     --fonts-color: #e2e2e2;
     --green: #3a8c43;
     --green2: #b0c871;
     --green3: #689f60;
     --green4: rgba(70, 133, 54, 0.542);
-    --red: #b14633;
+    --green5: rgba(70, 133, 54, 0.816);
+    --red: #c97161;
+    --silver2: #1c1e21a3;
     --silver: #e6e6e6;
     --blue: #3b5b98;
     --dark: #1c1e21;
@@ -52,9 +55,9 @@ header {
 }
 .menu > .logo-box {
     display: block;
-    padding: 5px;
+    padding-top: 5px;
+    padding-left: 1px;
     text-align: center;
-    margin-left: 10px;
 }
 .menu > .panels-box {
     display: flex;
@@ -86,9 +89,6 @@ header {
     }
     .user-name {
         display: none;
-    }
-    .container nav {
-        flex-grow: 0.5;
     }
     .container main {
         flex-grow: 2;
@@ -286,9 +286,8 @@ header {
     width: 80%;
     background-color: var(--green4);
     border-bottom-left-radius: 30px;
-    font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans",
-        "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana,
-        Helvetica, sans-serif;
+    font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS",
+        Verdana, Helvetica, sans-serif;
     font-size: 13px;
     font-weight: 400;
     line-height: 1rem;
@@ -309,6 +308,7 @@ header {
     border-bottom-left-radius: 40px;
     text-align: center;
     box-shadow: 0px 0px 3px 0px var(--dark);
+    z-index: 1;
 }
 .log-text {
     width: 100%;

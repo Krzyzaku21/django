@@ -17,6 +17,7 @@ footer {
     flex-wrap: nowrap;
     width: 100%;
     background-color: var(--green2);
+    min-height: 50px;
     max-height: 50px;
     margin-bottom: 0;
 }
