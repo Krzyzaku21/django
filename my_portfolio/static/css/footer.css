@@ -21,5 +21,20 @@ footer {
     max-height: 50px;
     margin-bottom: 0;
 }
+.foot {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.foot h1 {
+    padding-right: 80px;
+    font-family: "Raleway";
+    font-size: 20px;
+    color: var(--white-background);
+    text-shadow: 1px 1px 1px var(--dark);
+    font-style: italic;
+}
 /* * END MENU */
 /* ! BODY--> */

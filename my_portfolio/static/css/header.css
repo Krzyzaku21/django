@@ -99,6 +99,24 @@ header {
         display: none;
     }
 }
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--silver);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--green5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--green4);
+}
 /* & LOGO BOX */
 .logo-1 {
     width: 150px;
