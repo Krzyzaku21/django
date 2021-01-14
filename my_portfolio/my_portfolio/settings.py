@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'articles',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')
-            ],
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +82,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-DATABASES['default'] = dj_database_url.parse('postgres://postgres:admin@localhost:5432/my_portfolio', conn_max_age=600)
+DATABASES['default'] = dj_database_url.parse(
+    'postgres://postgres:admin@localhost:5432/my_portfolio', conn_max_age=600)
 
 
 # Password validation
@@ -119,13 +121,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-#PLIKI STATYCZNE
+# PLIKI STATYCZNE
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/django/my_portfolio/static/',
 ]
 STATIC_URL = '/static/'
 
-#MEDIA ADD
+# MEDIA ADD
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

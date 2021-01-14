@@ -1,0 +1,12 @@
+{% extends "index.html" %} {% block articles_allone %} {% load static %}{% for all in articles_all %}
+<div class="article-bar">
+    <div><h1>{{ all.title }}</h1></div>
+    <div><h2>{{ all.pub_date }}</h2></div>
+</div>
+<div class="article-box">
+    <section>
+        <img src="{% static 'img/space-odyssey.jpg' %}" alt="image 1" align="left" />
+        <span>{{ all.content }} </span>
+    </section>
+</div>
+{% endfor %} {% endblock articles_allone %}

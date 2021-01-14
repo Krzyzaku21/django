@@ -1,0 +1,12 @@
+{% extends "index.html" %} {% block article %} {% load static %}
+<div class="article-bar">
+    <div><h1>{{ article.title }}</h1></div>
+    <div><h2>{{ article.pub_date }}</h2></div>
+</div>
+<div class="article-box">
+    <section>
+        <img src="{% static 'img/space-odyssey.jpg' %}" alt="image 1" align="left" />
+        <span>{{ article.content }} </span>
+    </section>
+</div>
+{% endblock article %}

@@ -1,0 +1,15 @@
+{% extends "index.html" %} {% block articles %} {% load static %} {% for ten_articles in page_obj %}
+<div class="article-bar">
+    <div><h1>{{ ten_articles.title }}</h1></div>
+    <div><h2>{{ ten_articles.pub_date }}</h2></div>
+</div>
+<div class="article-box">
+    <section>
+        <img src="{% static '/img/space-odyssey.jpg' %}" alt="image 1" align="left" />
+        <span>{{ ten_articles.content | truncatewords:100 }} </span>
+        <div>
+            <a href="/articles/{{ ten_articles.id }}/"><button>Czytaj więcej</button></a>
+        </div>
+    </section>
+</div>
+{% endfor %} {% endblock articles %}

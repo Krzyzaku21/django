@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
     <head>
@@ -7,11 +6,11 @@
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/aside.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}" />
+        <link rel="stylesheet" type="text/css" href="../static/css/header.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/nav.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/aside.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/footer.css" />
         <link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset.css" />
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <title>Krzyzaku website</title>
@@ -26,8 +25,8 @@
                     <div class="logo-box">
                         <span>
                             <a href="#">
-                                <img class="logo-1" src="{% static 'img/LOGO150x40.png' %}" />
-                                <img class="logo-2" src="{% static 'img/LOGO40x40.png' %}" />
+                                <img class="logo-1" src="../static/img/LOGO150x40.png" />
+                                <img class="logo-2" src="../static/img/LOGO40x40.png" />
                             </a>
                         </span>
                     </div>
@@ -185,24 +184,74 @@
                 <main>
                     <!--@ ARTICLE  -->
                     <article class="scrollable">
-                        <div>
-                    {% block articles %}
-                    {% endblock articles %}
-                    {% block article %}
-                    {% endblock article %}
-                    {% block articles_allone %}
-                    {% endblock articles_allone %}
+                        <div class="article-bar">
+                            <h1>Article</h1>
+                        </div>
+                        <div class="article-box">
+                            <section>
+                                <img src="../static/img/space-odyssey.jpg" alt="image 1" align="left" />
+                                <span>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab quidem odio ex suscipit. Voluptates eius,
+                                    sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates, ratione
+                                    cum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab quidem odio ex suscipit. Voluptates
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates, eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae
+                                    laudantium. Voluptates,saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                    eius, sint quia ad saepe, nulla tempore et sequi aperiam voluptas recusandae laudantium. Voluptates,
+                                </span>
+                                <div>
+                                    <button>Czytaj więcej</button>
+                                </div>
+                            </section>
                         </div>
                         <div class="pagination">
-                            <a href="/articles/?page=1">&laquo; first</a>
-                            <a class="active" href="/articles/?page=1">1</a>
-                            <a href="/articles/?page=2">2</a>
-                            <a href="/articles/?page=3">3</a>
-                            <a href="/articles/?page=4">4</a>
-                            <a href="/articles/?page=5">5</a>
-                            <a href="/articles/?page=6">6</a>
-                            <a href="/articles/?page={{ page_obj.paginator.num_pages }}">last</a>
-                            <a href="/articles/all/">all &raquo;</a>
+                            <a href="#">&laquo;</a>
+                            <a class="active" href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#">&raquo;</a>
                         </div>
                     </article>
                     <article class="art">
@@ -213,13 +262,13 @@
                             <section>
                                 <div class="image-row">
                                     <div class="image01">
-                                        <a href=""><img src="{% static '/img/space-odyssey.jpg' %}" /></a>
+                                        <a href=""><img src="../static/img/space-odyssey.jpg" /></a>
                                     </div>
                                     <div class="image01">
-                                        <a href=""><img src="{% static '/img/space-odyssey.jpg' %}" /></a>
+                                        <a href=""><img src="../static/img/space-odyssey.jpg" /></a>
                                     </div>
                                     <div class="image01">
-                                        <a href=""><img src="{% static '/img/space-odyssey.jpg' %}" /></a>
+                                        <a href=""><img src="../static/img/space-odyssey.jpg" /></a>
                                     </div>
                                 </div>
                             </section>
