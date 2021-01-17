@@ -1,5 +1,5 @@
 /* ! BODY--> */
-:root {
+/* :root {
     --white-background: #f3f3f3;
     --white-background2: #1c1e211c;
     --fonts-color: #e2e2e2;
@@ -8,12 +8,12 @@
     --green3: #689f60;
     --green4: rgba(70, 133, 54, 0.542);
     --green5: rgba(70, 133, 54, 0.816);
-    --red: #c97161;
+    --red: #1cf300;
     --silver2: #1c1e21a3;
     --silver: #e6e6e6;
     --blue: #3b5b98;
     --dark: #1c1e21;
-}
+} */
 /* * NAV MENU */
 .container nav {
     min-width: 150px;

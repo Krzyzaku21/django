@@ -1,5 +1,5 @@
 /* ! BODY--> */
-:root {
+/* :root {
     --white-background: #f3f3f3;
     --fonts-color: #e2e2e2;
     --green: #3a8c43;
@@ -10,7 +10,7 @@
     --silver: #e6e6e6;
     --blue: #3b5b98;
     --dark: #1c1e21;
-}
+} */
 /* * NAV MENU */
 @media screen and (max-width: 500px) {
     .scrollable {

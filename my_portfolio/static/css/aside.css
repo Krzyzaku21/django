@@ -1,5 +1,5 @@
 /* ! BODY--> */
-:root {
+/* :root {
     --white-background: #f3f3f3;
     --fonts-color: #e2e2e2;
     --green: #3a8c43;
@@ -16,7 +16,7 @@
     --dark-chat: #414346e5;
     --blue-group: #75d1ed69;
     --orange-group: #d5ce1469;
-}
+} */
 /* * NAV MENU */
 @media screen and (max-width: 800px) {
     .container aside {

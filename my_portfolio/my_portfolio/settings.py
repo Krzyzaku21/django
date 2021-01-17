@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# ? os.environ.setdefault("DJANGO_SETTINGS_MODULE", __file__)
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", __file__)
 
 # Application definition
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "articles",
+    "import_html",
 ]
 
 MIDDLEWARE = [

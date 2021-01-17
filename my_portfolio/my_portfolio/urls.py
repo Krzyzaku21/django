@@ -19,12 +19,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from my_portfolio import views
 from articles.urls import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', views.index, name='index'),
     path('', include('articles.urls')),
-    path('', views.LoadArticles.as_view()),
+    path('', views.LoadArticles.as_view(), name='index'),
+    path('account/auth/', views.AuthView.as_view()),
+    # path('account/register/', views.RegisterPageView.as_view(), name='register'),
+    path('account/login/', views.LoginPageView.as_view(), name='login'),
+    path('account/loggedin/', views.LoggedinPageView.as_view()),
+    path('account/logout/', views.LogoutPageView.as_view()),
+    path('account/invalid/', views.InvalidLoginPageView.as_view()),
 ]
 
 
@@ -34,3 +40,4 @@ if settings.DEBUG:
                           document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)
+urlpatterns += staticfiles_urlpatterns()

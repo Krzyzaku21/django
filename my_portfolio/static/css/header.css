@@ -16,6 +16,10 @@ body > * {
 header {
     display: flex;
     max-height: 50px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 7;
 }
 .container {
     height: 100%;
@@ -34,16 +38,21 @@ header {
     --white-background: #f3f3f3;
     --white-background2: #1c1e211c;
     --fonts-color: #e2e2e2;
-    --green: #3a8c43;
+    --green: #8d5555;
     --green2: #b0c871;
-    --green3: #689f60;
-    --green4: rgba(70, 133, 54, 0.542);
-    --green5: rgba(70, 133, 54, 0.816);
-    --red: #c97161;
+    --green3: #e81414;
+    --green4: rgba(70, 133, 54, 0.816);
+    --green5: rgb(46, 92, 84);
+    --red: #7f9b95;
     --silver2: #1c1e21a3;
     --silver: #e6e6e6;
     --blue: #3b5b98;
     --dark: #1c1e21;
+    --green-chat: #3a8c445b;
+    --red-chat: #b146334b;
+    --dark-chat: #414346e5;
+    --blue-group: #75d1ed69;
+    --orange-group: #d5ce1469;
 }
 /* * HEADER MENU */
 .menu {
@@ -145,7 +154,7 @@ header {
     color: rgb(255, 255, 255);
     border: 1px solid var(--white-background);
     border-radius: 50%;
-    background-color: var(--red);
+    background-color: var(--blue);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -182,7 +191,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--red);
+    background-color: var(--blue);
     border-radius: 50%;
     padding: 5px;
 }
@@ -201,7 +210,7 @@ header {
 .panel-5 {
     display: flex;
     align-items: center;
-    background-color: var(--green4);
+    background-color: var(--red);
     border-radius: 20px;
     justify-content: center;
     margin-right: 15px;
@@ -255,7 +264,7 @@ header {
     justify-content: center;
     align-items: center;
     padding: 5px;
-    background-color: var(--green4);
+    background-color: var(--red);
     border-radius: 20px;
 }
 .user-class {
@@ -283,7 +292,7 @@ header {
     height: 20px;
     border-radius: 20px;
     padding: 5px;
-    background-color: var(--red);
+    background-color: var(--dark);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -302,7 +311,7 @@ header {
     flex-direction: column;
     height: 285px;
     width: 80%;
-    background-color: var(--green4);
+    background-color: var(--red);
     border-bottom-left-radius: 30px;
     font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS",
         Verdana, Helvetica, sans-serif;
@@ -357,7 +366,7 @@ header {
     font-size: 15px;
     font-style: italic;
     font-weight: 100;
-    background-color: var(--red);
+    background-color: var(--dark);
     color: var(--white-background);
 }
 .fb-btn {
@@ -369,7 +378,7 @@ header {
 }
 .google-btn {
     width: 100%;
-    background-color: var(--red);
+    background-color: rgb(182, 77, 77);
     color: var(--white-background);
     display: inline-flex;
     margin-bottom: 3px;

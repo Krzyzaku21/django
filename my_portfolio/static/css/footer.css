@@ -1,27 +1,28 @@
 /* ! BODY--> */
-:root {
+/* :root {
     --white-background: #f3f3f3;
     --fonts-color: #e2e2e2;
     --green: #3a8c43;
     --green2: #b0c871;
     --green3: #689f60;
     --green4: rgba(70, 133, 54, 0.542);
-    --red: #b14633;
+    --red: #ff2600;
     --silver: #e6e6e6;
     --blue: #3b5b98;
     --dark: #1c1e21;
-}
+} */
 /* * NAV MENU */
 footer {
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    background-color: var(--green2);
+    background-color: var(--red);
     min-height: 50px;
-    max-height: 50px;
     margin-bottom: 0;
 }
-.foot {
+footer .foot {
+    margin-top: 15px;
+    align-content: center;
     height: 100%;
     width: 100%;
     display: flex;
