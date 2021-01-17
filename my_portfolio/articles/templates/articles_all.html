@@ -5,7 +5,9 @@
 </div>
 <div class="article-box">
     <section>
-        <img src="{% static 'img/space-odyssey.jpg' %}" alt="image 1" align="left" />
+        {% if all.article_image %}
+        <img src="{{ all.article_image.url }}" alt="image 1" align="left" />
+        {% else %} {% endif %}
         <span>{{ all.content }} </span>
     </section>
 </div>

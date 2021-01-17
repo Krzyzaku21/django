@@ -8,3 +8,5 @@ class Article(models.Model):
     content = models.TextField(verbose_name='Content of Article')
     pub_date = models.DateTimeField(
         verbose_name='Date', default=datetime.now())
+    article_image = models.ImageField(
+        upload_to='image', verbose_name='Image of Article', null=True, blank=True)
