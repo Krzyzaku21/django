@@ -1,0 +1,12 @@
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1>{{ user_form.username.label }}{{ user_form.username }}</h1>
+    <h1>{{ user_form.email.label }}{{ user_form.email }}</h1>
+    <h1>{{ user_form.password1.label }}{{ user_form.password1 }}</h1>
+    <h1>{{ user_form.password2.label }}{{ user_form.password2 }}</h1>
+
+    <h1>{{ register_form.date_of_birth.label }}{{ register_form.date_of_birth }}</h1>
+    <h1>{{ register_form.image_add.label }}{{ register_form.image_add }}</h1>
+</form>
+<div class="d-flex justify-content-center links">Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a></div>
+{{ user_form.errors }} {{ register_form.errors }} {% for message in messages %} {{message}} {% endfor %}

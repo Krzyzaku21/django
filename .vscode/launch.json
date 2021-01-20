@@ -16,6 +16,7 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}\\my_portfolio\\manage.py",
+            "console": "integratedTerminal",
             "args": ["runserver"],
             "django": true
         }

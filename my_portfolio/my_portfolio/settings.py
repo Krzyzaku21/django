@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "articles",
     "import_html",
+    "auth_users",
 ]
 
 MIDDLEWARE = [
