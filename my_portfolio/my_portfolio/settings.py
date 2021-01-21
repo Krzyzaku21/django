@@ -71,6 +71,8 @@ TEMPLATES = [
         },
     },
 ]
+LOGIN_REDIRECT_URL = 'base'
+LOGOUT_REDIRECT_URL = 'base'
 
 WSGI_APPLICATION = "my_portfolio.wsgi.application"
 

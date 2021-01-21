@@ -1,4 +1,4 @@
-{% extends "index.html" %} {% block articles %} {% load static %} {% for ten_articles in page_obj %}
+{% extends "base.html" %} {% block articles %} {% load static %} {% for ten_articles in page_obj %}
 <div class="article-bar">
     <div><h1>{{ ten_articles.title }}</h1></div>
     <div><h2>{{ ten_articles.pub_date }}</h2></div>

@@ -23,18 +23,18 @@
         <header>
             <div class="header-box">
                 <div class="menu">
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <style>
-                    .menu {
-                    position: -webkit-sticky;
-                    position: sticky;
-                    top: 0;
-                    }
+                        .menu {
+                            position: -webkit-sticky;
+                            position: sticky;
+                            top: 0;
+                        }
                     </style>
                     <!--& LOGO BOX-->
                     <div class="logo-box">
                         <span>
-                            <a href="#">
+                            <a href="{% url 'base' %}">
                                 <img class="logo-1" src="{% static 'img/LOGO150x40.png' %}" />
                                 <img class="logo-2" src="{% static 'img/LOGO40x40.png' %}" />
                             </a>
@@ -85,55 +85,71 @@
                     <div class="options-box">
                         <div class="panel panel-6">
                             <div class="user-box">
+                                {% if user.is_authenticated %}
+                                {% for obj in register_obj %}
+                                {% if user.id == obj.user_id %}
                                 <img
-                                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_01.jpg"
+                                    src="{{ obj.image_add.url }}"
                                     alt="user-image"
                                     class="user-class"
                                 />
-                                <span class="user-name"> User Name<i class="user-icon"></i> </span>
+                                {% endif %}
+                                {% endfor %}
+                                {% else %}
+                                {% endif %}
+                                {% if user.is_authenticated %}
+                                <span class="user-name">{{ user.username }}<i class="user-icon"></i> </span>
+                                {% else %}
+                                <span class="user-name">Nick<i class="user-icon"></i> </span>
+                                {% endif %}
                             </div>
-                            <form class="bell-box" type="button" tabindex="0">
+                            <div class="bell-box" type="button" tabindex="0">
                                 <a class="bell-item">
                                     <i class="fas fa-cog"></i>
                                 </a>
                                 <div class="log-panel">
                                     <ul>
                                         <li>
-                                            <div class="log-text">
-                                                <label for="log-log" class="log-txt">Login</label>
-                                                <input type="text" name="name" class="log-name log-docker" placeholder="Login lub E-mail" />
+                                            <div class="log-button">
+                                                {% if user.is_authenticated %} Hi {{ user.username }}!
+                                                <p><a href="{% url 'logout' %}">Log Out</a></p>
+                                                {% else %}
+                                                <form method="POST">
+                                                    {% csrf_token %} {{ form.as_p }}
+                                                    <div class="log-text">
+                                                        <label for="log-log" class="log-txt">Login</label>
+                                                        <input type="text" name="username" class="log-name log-docker" placeholder="Login lub E-mail" />
+                                                    </div>
+                                                    <div class="log-text">
+                                                        <span class="log-txt">Hasło</span>
+                                                        <input type="password" name="password" class="log-pass log-docker" placeholder="Hasło" />
+                                                    </div>
+                                                    <fieldset class="log-button">
+                                                        <p>
+                                                            <input type="submit" class="log-btn" value="Zaloguj się" />
+                                                        </p>
+                                                    </fieldset>
+                                                    <li class="log-or">
+                                                        <span class="">lub</span>
+                                                    </li>
+                                                    <li class="fb-btn">
+                                                        <a class="log-fb" href="#"><i class="fab fa-facebook-square"></i> <span>Zaloguj przez Facebook</span></a>
+                                                    </li>
+                                                    <li class="google-btn">
+                                                        <a class="log-google" href="#"><i class="fab fa-google"></i> <span>Zaloguj przez Google</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a id="register" class="register" href="/register" title="Zarejestruj się"><span>Nie masz konta?</span> Zarejestruj się.</a>
+                                                    </li>
+                                                </form>
+                                                <br />
+                                                <a href="/register">Create an account</a>
+                                                {% endif %}
                                             </div>
-                                            <div class="log-text">
-                                                <span class="log-txt">Hasło</span>
-                                                <input type="password" name="password" class="log-pass log-docker" placeholder="Hasło" />
-                                            </div>
-                                            <fieldset class="log-button">
-                                                <p>
-                                                    <input type="submit" class="log-btn" value="Zaloguj się" />
-                                                </p>
-                                            </fieldset>
-                                        </li>
-                                        <li class="log-or">
-                                            <span class="">lub</span>
-                                        </li>
-                                        <li class="fb-btn">
-                                            <a class="log-fb" href="#"
-                                                ><i class="fab fa-facebook-square"></i> <span>Zaloguj przez Facebook</span></a
-                                            >
-                                        </li>
-                                        <li class="google-btn">
-                                            <a class="log-google" href="#"
-                                                ><i class="fab fa-google"></i> <span>Zaloguj przez Google</span></a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a id="register" class="register" href="#" title="Zarejestruj się"
-                                                ><span>Nie masz konta?</span> Zarejestruj się.</a
-                                            >
                                         </li>
                                     </ul>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                     <!--& END OPTIONS BOX-->
@@ -184,7 +200,11 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="btn"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'logout' %}" class="btn"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+                                {% else %}
+                                <a href="{% url 'login' %}" class="btn"><i class="fas fa-sign-out-alt"></i>Login</a>
+                                {% endif %}
                             </li>
                         </ol>
                     </div>
@@ -233,22 +253,43 @@
                     <!--@ ARTICLE  -->
                     <article class="scrollable">
                         <div>
-                    {% block articles %}
-                    {% endblock articles %}
-                    {% block article %}
-                    {% endblock article %}
-                    {% block articles_allone %}
-                    {% endblock articles_allone %}
+                            {% for ten_articles in page_obj %}
+                            <div class="article-bar">
+                                <div><h1>{{ ten_articles.title }}</h1></div>
+                                <div><h2>{{ ten_articles.pub_date }}</h2></div>
+                            </div>
+                            <div class="article-box">
+                                <section>
+                                    {% if ten_articles.article_image %}
+                                    <img src="{{ ten_articles.article_image.url }}" alt="image 1" align="left" />
+                                    {% else %} {% endif %}
+                                    <span>{{ ten_articles.content | truncatewords:110 }} </span>
+                                    <div>
+                                        <a href="/articles/{{ ten_articles.id }}/"><button>Czytaj więcej</button></a>
+                                    </div>
+                                </section>
+                                </div>
+                                {% endfor %}
+                                {% block login %}
+                                {% endblock login %}
+                                {% block register %}
+                                {% endblock register %}
+                                {% block articles %}
+                                {% endblock articles %}
+                                {% block article %}
+                                {% endblock article %}
+                                {% block articles_allone %}
+                                {% endblock articles_allone %}
                         </div>
                         <div class="pagination">
-                            <a href="/articles/?page=1">&laquo; first</a>
-                            <a class="active" href="/articles/?page=1">1</a>
-                            <a href="/articles/?page=2">2</a>
-                            <a href="/articles/?page=3">3</a>
-                            <a href="/articles/?page=4">4</a>
-                            <a href="/articles/?page=5">5</a>
-                            <a href="/articles/?page=6">6</a>
-                            <a href="/articles/?page={{ page_obj.paginator.num_pages }}">last</a>
+                            <a href="?page=1">&laquo; first</a>
+                            <a class="active" href="?page=1">1</a>
+                            <a href="?page=2">2</a>
+                            <a href="?page=3">3</a>
+                            <a href="?page=4">4</a>
+                            <a href="?page=5">5</a>
+                            <a href="?page=6">6</a>
+                            <a href="?page={{ page_obj.paginator.num_pages }}">last</a>
                             <a href="/articles/all/">all &raquo;</a>
                         </div>
                     </article>

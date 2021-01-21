@@ -5,19 +5,6 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 
-class LoadArticles(View):
-
-    def get(self, request):
-        article_list = Article.objects.all()[::-1]
-        page_number = request.GET.get('page')
-        article_paginator = Paginator(article_list, 5)
-        page_obj = article_paginator.get_page(page_number)
-        context = {
-            'page_obj': page_obj,
-        }
-        return render(request, 'articles.html', context)
-
-
 class LoadArticle(View):
 
     def get(self, request, article_id):

@@ -17,18 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-# from my_portfolio.views import LoginPageView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('articles.urls')),
-    path('accounts/', include('auth_users.urls')),
-    # path('account/auth/', views.AuthView.as_view()),
-    # path('account/register/', views.RegisterPageView.as_view(), name='register'),
-    # path('account/login/', LoginPageView.as_view(), name='login'),
-    #     path('account/loggedin/', views.LoggedinPageView.as_view()),
-    #     path('account/logout/', views.LogoutPageView.as_view()),
-    #     path('account/invalid/', views.InvalidLoginPageView.as_view()),
+    path('', include('auth_users.urls'), name='base'),
+    path('articles/', include('articles.urls'), name='articles'),
+
 ]
 
 

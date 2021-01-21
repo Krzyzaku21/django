@@ -6,13 +6,95 @@ from django.template.context_processors import csrf
 from django.contrib.auth.models import User
 from auth_users.forms import RegisterForm, CreateUserForm
 from django.contrib import messages
+from django.core.paginator import Paginator
+from articles.models import Article
+from auth_users.models import Register
+
+
+class LoaderHomePage(View):
+    def get(self, request):
+        article_list = Article.objects.all()[::-1]
+        page_number = request.GET.get('page')
+        article_paginator = Paginator(article_list, 5)
+        page_obj = article_paginator.get_page(page_number)
+
+        register_obj = Register.objects.all()
+
+        context = {
+            'page_obj': page_obj,
+            'register_obj': register_obj,
+        }
+        return render(request, 'base.html', context)
+
+    def post(self, request):
+        context = {
+            'data': request.POST,
+            'has_error': False
+        }
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        if username == '':
+            messages.add_message(request, messages.ERROR,
+                                 'Username is required')
+            context['has_error'] = True
+        if password == '':
+            messages.add_message(request, messages.ERROR,
+                                 'Password is required')
+            context['has_error'] = True
+        user = authenticate(request, username=username, password=password)
+
+        if not user and not context['has_error']:
+            messages.add_message(request, messages.ERROR, 'Invalid login')
+            context['has_error'] = True
+
+        if context['has_error']:
+            return render(request, 'login.html', status=401, context=context)
+        login(request, user)
+        return redirect('/')
+
+
+class LoginPageView(View):
+    def get(self, request):
+        return render(request, 'login.html')
+
+    def post(self, request):
+        context = {
+            'data': request.POST,
+            'has_error': False
+        }
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        if username == '':
+            messages.add_message(request, messages.ERROR,
+                                 'Username is required')
+            context['has_error'] = True
+        if password == '':
+            messages.add_message(request, messages.ERROR,
+                                 'Password is required')
+            context['has_error'] = True
+        user = authenticate(request, username=username, password=password)
+
+        if not user and not context['has_error']:
+            messages.add_message(request, messages.ERROR, 'Invalid login')
+            context['has_error'] = True
+
+        if context['has_error']:
+            return render(request, 'login.html', status=401, context=context)
+        login(request, user)
+        return redirect('/')
+
+
+class LogoutPageView(View):
+    def get(self, request):
+        logout(request)
+        return redirect('/')
 
 
 class RegisterPageView(View):
 
     def get(self, request):
         if request.user.is_authenticated:
-            return redirect('/')
+            return redirect('base.html')
         user_form = CreateUserForm(request.POST)
         register_form = RegisterForm(request.POST)
         context = {'user_form': user_form, 'register_form': register_form}
@@ -46,31 +128,3 @@ class RegisterPageView(View):
                 print(user_form.errors)
         context = {'user_form': user_form, 'register_form': register_form}
         return render(request, 'register.html', context)
-        # else:
-        #     return redirect('register')
-
-
-class LoginPageView(View):
-
-    def get(self, request):
-        context = {}
-        return render(request, 'login.html', context)
-
-    # def get(self, request):
-    #     if request.user.is_authenticated:
-    #         return redirect('/')
-
-    # def post(self, request):
-    #     if request.method == 'POST':
-    #         username = request.POST.get('username')
-    #         password = request.POST.get('password')
-
-    #         user = authenticate(request, username=username, password=password)
-
-    #         if user is not None:
-    #             login(request, user)
-    #             return redirect('/')
-    #         else:
-    #             messages.info(request, 'Username OR password is incorrect')
-    #     context = {}
-    #     return render(request, 'login.html', context)
