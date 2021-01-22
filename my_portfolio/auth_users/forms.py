@@ -16,11 +16,12 @@ class RegisterForm(ModelForm):
         }
 
     def image_size(self):
-        image = self.cleaned_data.get('image_add')
-        if image.height > 250 and image.width > 250:
+        image_height = self.image_add.height
+        image_width = self.image_add.width
+        if image_height > 250 and image_width > 250:
             raise ValidationError("your photo need to be 250px/250px")
         else:
-            return image
+            return self.image_add
 
 
 class CreateUserForm(UserCreationForm):

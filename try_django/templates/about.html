@@ -1,0 +1,43 @@
+<!-- https://docs.djangoproject.com/pl/3.1/ref/templates/builtins/ -->
+{% extends "base.html" %} {% block content %}
+<br />
+{{ my_title }}
+<h1>About</h1>
+<p>{{ my_text }}</p>
+<p>{{ my_number }}</p>
+<!-- capfirst - pisanie z wielkiej litery -->
+<p>{{ my_title|capfirst }}</p>
+<!-- capfirst - pisanie z wielkiej litery -->
+<p>{{ my_title|capfirst|slugify }}</p>
+<!-- kilka filrtów na jeden element -->
+<p>{{ my_title|capfirst|upper }}</p>
+<!-- safe - filtruje html -->
+<p>{{ my_code|safe }}</p>
+<br />
+<p>{{ my_list }}</p>
+{% for i in my_list %} {{ i }} {% endfor %}
+<br />
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+<br />
+{% for j in my_list %}
+<ul>
+    <li>{{ j }}</li>
+</ul>
+{% endfor %}
+<br />
+<ul>
+    {% for abc in my_list %}
+    <br />
+    {% if abc == 456 %}
+    <li>{{ forloop.counter }} - {{ abc|add:44 }}</li>
+    {% elif abc == "Abc" %}
+    <li>This is not network</li>
+    {% else %}
+    <li>{{ forloop.counter }} - {{ abc }}</li>
+    {% endif %} {% endfor %}
+</ul>
+<br />
+{% endblock content %}
