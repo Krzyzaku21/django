@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}
+
+{% for course_object in object_list %}
+
+<p>{{ course_object.id }} - {{ course_object.title }}</p>
+
+{% endfor %}
+
+{% endblock content %}

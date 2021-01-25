@@ -7,9 +7,14 @@
 <!-- action=''-wysyłanie na address który wybiorę  -->
 <!-- metoda POST - idzie pod konkretny adress i zapisuje dane w backendzie -->
 <!-- metoda GET- idzie pod konkretny adress w action i pobiera z niego dane -->
-<form action="." method="POST">
+<!-- <form action="." method="POST">
     {% csrf_token %}
     <input type="text" name="title" placeholder="Your title" />
+    <input type="submit" value="Save" />
+</form> -->
+
+<form action="." method="POST">
+    {% csrf_token %} {{ form.as_p }}
     <input type="submit" value="Save" />
 </form>
 
