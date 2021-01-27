@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "articles",
     "import_html",
     "auth_users",
+    "home_loader",
 ]
 
 MIDDLEWARE = [
@@ -67,10 +68,12 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'home_loader.base_context_processor.subject_renderer',
             ],
         },
     },
 ]
+
 LOGIN_REDIRECT_URL = 'base'
 LOGOUT_REDIRECT_URL = 'base'
 

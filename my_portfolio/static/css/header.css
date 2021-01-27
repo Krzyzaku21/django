@@ -19,7 +19,7 @@ header {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
-    z-index: 7;
+    z-index: 1;
 }
 .container {
     height: 100%;
@@ -313,8 +313,7 @@ header {
     width: 80%;
     background-color: var(--red);
     border-bottom-left-radius: 30px;
-    font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS",
-        Verdana, Helvetica, sans-serif;
+    font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
     font-size: 13px;
     font-weight: 400;
     line-height: 1rem;

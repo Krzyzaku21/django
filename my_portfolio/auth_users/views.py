@@ -11,48 +11,6 @@ from articles.models import Article
 from auth_users.models import Register
 
 
-class LoaderHomePage(View):
-    def get(self, request):
-        article_list = Article.objects.all()[::-1]
-        page_number = request.GET.get('page')
-        article_paginator = Paginator(article_list, 5)
-        page_obj = article_paginator.get_page(page_number)
-
-        register_obj = Register.objects.all()
-
-        context = {
-            'page_obj': page_obj,
-            'register_obj': register_obj,
-        }
-        return render(request, 'base.html', context)
-
-    def post(self, request):
-        context = {
-            'data': request.POST,
-            'has_error': False
-        }
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        if username == '':
-            messages.add_message(request, messages.ERROR,
-                                 'Username is required')
-            context['has_error'] = True
-        if password == '':
-            messages.add_message(request, messages.ERROR,
-                                 'Password is required')
-            context['has_error'] = True
-        user = authenticate(request, username=username, password=password)
-
-        if not user and not context['has_error']:
-            messages.add_message(request, messages.ERROR, 'Invalid login')
-            context['has_error'] = True
-
-        if context['has_error']:
-            return render(request, 'login.html', status=401, context=context)
-        login(request, user)
-        return redirect('/')
-
-
 class LoginPageView(View):
     def get(self, request):
         return render(request, 'login.html')

@@ -86,7 +86,7 @@
                         <div class="panel panel-6">
                             <div class="user-box">
                                 {% if user.is_authenticated %}
-                                {% for obj in register_obj %}
+                                {% for obj in register_all %}
                                 {% if user.id == obj.user_id %}
                                 <img
                                     src="{{ obj.image_add.url }}"
@@ -164,7 +164,7 @@
                     <div class="nav-panel">
                         <ol class="nav-menu">
                             <li class="nav-item" id="account">
-                                <a href="#account" class="btn"><i class="fas fa-user-circle"></i>Profile</a>
+                                <a href="#account" class="btn">Profile</a>
                                 <div class="nav-sub-menu">
                                     <a href="">Posts</a>
                                     <a href="">Info</a>
@@ -173,7 +173,7 @@
                                 </div>
                             </li>
                             <li class="nav-item" id="about">
-                                <a href="#about" class="btn"><i class="fas fa-address-card"></i>Codes</a>
+                                <a href="#about" class="btn">Codes</a>
                                 <div class="nav-sub-menu">
                                     <a href="">Python</a>
                                     <a href="">HTML</a>
@@ -182,7 +182,7 @@
                                 </div>
                             </li>
                             <li class="nav-item" id="support">
-                                <a href="#support" class="btn"><i class="fas fa-info"></i>Science</a>
+                                <a href="#support" class="btn">Science</a>
                                 <div class="nav-sub-menu">
                                     <a href="">Posts</a>
                                     <a href="">Info</a>
@@ -191,7 +191,7 @@
                                 </div>
                             </li>
                             <li class="nav-item" id="support2">
-                                <a href="#support2" class="btn"><i class="fas fa-info"></i>Projects</a>
+                                <a href="#support2" class="btn">Projects</a>
                                 <div class="nav-sub-menu">
                                     <a href="">First project</a>
                                     <a href="">Second project</a>
@@ -200,10 +200,10 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                {% if user.is_authenticated - + / :  %}
-                                <a href="{% url 'logout' %}" class="btn"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'logout' %}" class="btn">Log Out</a>
                                 {% else %}
-                                <a href="{% url 'login' %}" class="btn"><i class="fas fa-sign-out-alt"></i>Login</a>
+                                <a href="{% url 'login' %}" class="btn">Login</a>
                                 {% endif %}
                             </li>
                         </ol>
@@ -268,7 +268,7 @@
                                         <a href="/articles/{{ ten_articles.id }}/"><button>Czytaj więcej</button></a>
                                     </div>
                                 </section>
-                                </div>
+                            </div>
                                 {% endfor %}
                                 {% block login %}
                                 {% endblock login %}

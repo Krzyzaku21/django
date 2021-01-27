@@ -2,6 +2,7 @@ from django.shortcuts import render
 from articles.models import Article
 from django.views import View
 from django.core.paginator import Paginator
+from auth_users.models import Register
 # Create your views here.
 
 
@@ -9,7 +10,7 @@ class LoadArticle(View):
 
     def get(self, request, article_id):
         context = {
-            'article': Article.objects.get(id=article_id)
+            'article': Article.objects.get(id=article_id),
         }
         return render(request, 'article.html', context)
 
