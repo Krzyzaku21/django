@@ -70,8 +70,7 @@ article .article-bar {
 }
 .article-bar div h1 {
     margin-left: 15px;
-    font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS",
-        Verdana, Helvetica, sans-serif;
+    font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
     font-size: 13px;
     font-weight: 400;
     text-shadow: 1px 1px 1px var(--dark);
@@ -82,8 +81,7 @@ article .article-bar {
     margin-top: 15px;
     text-align: right;
     margin-right: 15px;
-    font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS",
-        Verdana, Helvetica, sans-serif;
+    font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
     font-size: 10px;
     font-weight: 400;
     text-shadow: 1px 1px 1px var(--dark);

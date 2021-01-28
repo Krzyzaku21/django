@@ -13,4 +13,20 @@
 <div class="d-flex justify-content-center links">Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a></div>
 {% for message in messages %}{{message}} {% endfor %}
 <br />
-{{ user_form.errors }}{{ register_form.errors }} {% endblock register %}
+
+{% if user_form.errors %}
+    {% for field in user_form %}
+        {% for error in field.errors %}
+            <p>{{ error|escape }}</p>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+{% if register_form.errors %}
+    {% for field in register_form %}
+        {% for error in field.errors %}
+            <p>{{ error|escape }}</p>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+{% endblock register %}

@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from articles.models import Article
 from auth_users.models import Register
+from django.views.generic import TemplateView
 
 
 class LoginPageView(View):
@@ -49,40 +50,73 @@ class LogoutPageView(View):
 
 
 class RegisterPageView(View):
+    template_name = 'register.html'
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('base.html')
-        user_form = CreateUserForm(request.POST)
-        register_form = RegisterForm(request.POST)
+            return redirect('/')
+        else:
+            user_form = CreateUserForm(request.POST)
+            register_form = RegisterForm(request.POST)
         context = {'user_form': user_form, 'register_form': register_form}
-        return render(request, 'register.html', context)
+        return render(request, self.template_name, context)
 
     def post(self, request):
         if request.method == 'POST':
+            user_form = CreateUserForm(request.POST)
             register_form = RegisterForm(request.POST, request.FILES)
-            image_adds = request.FILES.get('image_add')
-            register_form.instance.image_add = image_adds
-            height_image = register_form.instance.image_add.height
-            width_image = register_form.instance.image_add.width
-            if height_image < 250 and width_image < 250:
-                user_form = CreateUserForm(request.POST)
-                if user_form.is_valid():
-                    user_form.save()
-                    user_form_id = user_form.instance.id
-                    register_form.instance.image_add = image_adds
-                    register_form.instance.user_id = user_form_id
-                    if register_form.is_valid():
-                        register_form.save()
-                    user = user_form.cleaned_data.get('username')
-                    messages.success(
-                        request, 'Your account has been registered' + user)
+            if user_form.is_valid():
+                user = user_form.save()
+                user_form_id = user_form.instance.id
+                register_form.instance.user_id = user_form_id
+                if register_form.is_valid():
+                    register_form.save()
+                    username = user_form.cleaned_data.get('username')
+                    messages.success(request, 'Account was created for ' + username)
                     return redirect('login')
-            if height_image > 250 and width_image > 250:
-                user_form = CreateUserForm(request.POST)
-                user_form.full_clean()
-                messages.error(request, "your photo need to be 250px/250px")
             else:
-                print(user_form.errors)
+                print(f"Error like: {user_form.errors}")
+                print(f"Error like: {register_form.errors}")
+
         context = {'user_form': user_form, 'register_form': register_form}
-        return render(request, 'register.html', context)
+        return render(request, self.template_name, context)
+
+# class RegisterPageView(View):
+#     template_name = 'register.html'
+
+#     def get(self, request):
+#         if request.user.is_authenticated:
+#             return redirect('base.html')
+#         user_form = CreateUserForm(request.POST)
+#         register_form = RegisterForm(request.POST)
+#         context = {'user_form': user_form, 'register_form': register_form}
+#         return render(request, self.template_name, context)
+
+#     def post(self, request):
+#         if request.method == 'POST':
+#             register_form = RegisterForm(request.POST, request.FILES)
+#             image_adds = request.FILES.get('image_add')
+#             register_form.instance.image_add = image_adds
+#             height_image = register_form.instance.image_add.height
+#             width_image = register_form.instance.image_add.width
+#             if height_image < 250 and width_image < 250:
+#                 user_form = CreateUserForm(request.POST)
+#                 if user_form.is_valid():
+#                     user_form.save()
+#                     user_form_id = user_form.instance.id
+#                     register_form.instance.image_add = image_adds
+#                     register_form.instance.user_id = user_form_id
+#                     if register_form.is_valid():
+#                         register_form.save()
+#                     user = user_form.cleaned_data.get('username')
+#                     messages.success(
+#                         request, 'Your account has been registered' + user)
+#                     return redirect('login')
+#             if height_image > 250 and width_image > 250:
+#                 user_form = CreateUserForm(request.POST)
+#                 user_form.full_clean()
+#                 messages.error(request, "your photo need to be 250px/250px")
+#             else:
+#                 print(user_form.errors)
+#         context = {'user_form': user_form, 'register_form': register_form}
+#         return render(request, self.template_name, context)

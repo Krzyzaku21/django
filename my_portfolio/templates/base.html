@@ -139,11 +139,9 @@
                                                         <a class="log-google" href="#"><i class="fab fa-google"></i> <span>Zaloguj przez Google</span></a>
                                                     </li>
                                                     <li>
-                                                        <a id="register" class="register" href="/register" title="Zarejestruj się"><span>Nie masz konta?</span> Zarejestruj się.</a>
+                                                        <a id="register" class="register" href="/profile/register" title="Zarejestruj się"><span>Nie masz konta?</span> Zarejestruj się.</a>
                                                     </li>
                                                 </form>
-                                                <br />
-                                                <a href="/register">Create an account</a>
                                                 {% endif %}
                                             </div>
                                         </li>
@@ -276,14 +274,13 @@
                                 {% endblock register %}
                                 {% block articles %}
                                 {% endblock articles %}
-                                {% block article %}
-                                {% endblock article %}
                                 {% block articles_allone %}
                                 {% endblock articles_allone %}
+                                {% block article %}
                         </div>
                         <div class="pagination">
                             <a href="?page=1">&laquo; first</a>
-                            <a class="active" href="?page=1">1</a>
+                            <a href="?page=1">1</a>
                             <a href="?page=2">2</a>
                             <a href="?page=3">3</a>
                             <a href="?page=4">4</a>
@@ -292,6 +289,8 @@
                             <a href="?page={{ page_obj.paginator.num_pages }}">last</a>
                             <a href="/articles/all/">all &raquo;</a>
                         </div>
+
+                                {% endblock article %}
                     </article>
                     <article class="art">
                         <div class="article-bar">
