@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from datetime import date
+from dateutil.relativedelta import relativedelta
 
 
 class RegisterForm(ModelForm):
@@ -18,7 +19,7 @@ class RegisterForm(ModelForm):
                     'class': 'datepicker',
                     'type': 'date',
                     'min': "1914-05-11",
-                    'max': date.today(),
+                    'max': date.today() - relativedelta(years=18),
                 })
         }
 
