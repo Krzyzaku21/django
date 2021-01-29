@@ -1,4 +1,5 @@
 
+# pip install --upgrade --force-reinstall
 # todo CTRL + F5- W Chrome przy update czegokolwiek bypass - odświerzanie chrome przeglądarki
 # ! /////////////////////////////////////////// ODPALANIE MASZYNY WIRTUALNEJ
 # konsola jeśli nie zainstalowane to środowisko wirtualne django

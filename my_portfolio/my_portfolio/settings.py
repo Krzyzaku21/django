@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "import_html",
     "auth_users",
     "home_loader",
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,10 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                # social templates
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+                # my templates
                 'home_loader.base_context_processor.subject_renderer',
             ],
         },
@@ -90,7 +95,7 @@ DATABASES = {
     }
 }
 DATABASES["default"] = dj_database_url.parse(
-    "postgres://postgres:admin@localhost:5432/my_portfolio", conn_max_age=600
+    "postgres://postgres:admin@localhost:5432/gless_db", conn_max_age=600
 )
 
 
@@ -115,6 +120,48 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.github.GithubOAuth2',
+    # 'social_core.backends.google.GoogleOpenId',
+    # 'social_core.backends.google.GoogleOAuth2',
+    # 'social_core.backends.google.GoogleOAuth',
+    # 'social_core.backends.twitter.TwitterOAuth',
+    # 'social_core.backends.yahoo.YahooOpenId',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GITHUB_KEY = '4301d48f820193b5102b'
+SOCIAL_AUTH_GITHUB_SECRET = 'fa1d3072d6ba81516a792b66935e71efdd97ff53'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '709308936618149'
+SOCIAL_AUTH_FACEBOOK_SECRET = '0f312024c02c813b3f742e47542362f1'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']  # add this
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       # add this
+    'fields': 'id, name, email, picture.type(large), link'
+}
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 # add this
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
+]
+
+# SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.social_auth.associate_by_email',  # <--- enable this one. to match users per email adress
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

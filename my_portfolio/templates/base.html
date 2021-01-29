@@ -85,6 +85,23 @@
                     <div class="options-box">
                         <div class="panel panel-6">
                             <div class="user-box">
+                                {% if user.social_auth.get.uid is not user.is_authenticated %}
+                                {% if user.social_auth.get.uid|length == 8 %}
+                                <img
+                                    src="https://avatars.githubusercontent.com/u/{{user.social_auth.get.uid}}?s=60&v=4"
+                                    alt="user-image"
+                                    class="user-class"
+                                />
+                                {% endif %}
+                                {% if user.social_auth.get.uid|length == 16 %}
+                                <img
+                                    src="https://graph.facebook.com/{{user.social_auth.get.uid}}/picture"
+                                    alt="user-image"
+                                    class="user-class"
+                                />
+                                {% else %}
+                                {% endif %}
+                                {% endif %}
                                 {% if user.is_authenticated %}
                                 {% for obj in register_all %}
                                 {% if user.id == obj.user_id %}
@@ -133,10 +150,13 @@
                                                         <span class="">lub</span>
                                                     </li>
                                                     <li class="fb-btn">
-                                                        <a class="log-fb" href="#"><i class="fab fa-facebook-square"></i> <span>Zaloguj przez Facebook</span></a>
+                                                        <a class="log-fb" href="{% url 'social:begin' 'facebook' %}"><i class="fab fa-facebook-square"></i> <span>Zaloguj przez Facebook</span></a>
                                                     </li>
                                                     <li class="google-btn">
                                                         <a class="log-google" href="#"><i class="fab fa-google"></i> <span>Zaloguj przez Google</span></a>
+                                                    </li>
+                                                    <li class="google-btn">
+                                                        <a class="log-google" style="background-color: black" href="{% url 'social:begin' 'github' %}"><i class="fab fa-github"></i> <span>Zaloguj przez Githuba</span></a>
                                                     </li>
                                                     <li>
                                                         <a id="register" class="register" href="/profile/register" title="Zarejestruj się"><span>Nie masz konta?</span> Zarejestruj się.</a>
