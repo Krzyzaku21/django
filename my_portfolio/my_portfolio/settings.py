@@ -120,6 +120,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# SOCIAL CONNECT
+
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.github.GithubOAuth2',
@@ -162,6 +164,17 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.load_extra_data',
     'social.pipeline.user.user_details',
 )
+
+# EMAIL RESPONSE
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "glessapp@gmail.com"
+EMAIL_HOST_PASSWORD = "Admin54321!"
+MAILER_EMAIL_BACKEND = EMAIL_BACKEND
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

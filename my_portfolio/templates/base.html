@@ -161,6 +161,9 @@
                                                     <li>
                                                         <a id="register" class="register" href="/profile/register" title="Zarejestruj się"><span>Nie masz konta?</span> Zarejestruj się.</a>
                                                     </li>
+                                                    <li>
+                                                        <a id="password-reset" class="register" href="{% url 'password_reset' %}" title="Przypomnij haslo"><span></span>Przypomnij haslo</a>
+                                                    </li>
                                                 </form>
                                                 {% endif %}
                                             </div>
@@ -297,6 +300,8 @@
                                 {% block articles_allone %}
                                 {% endblock articles_allone %}
                                 {% block article %}
+                                {% block reset_pass %}
+                                {% endblock reset_pass %}
                         </div>
                         <div class="pagination">
                             <a href="?page=1">&laquo; first</a>
