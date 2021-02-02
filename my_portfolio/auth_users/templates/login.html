@@ -1,4 +1,7 @@
 {% extends "base.html" %}{% block login %}{% load static %}
+{% if user.is_authenticated %}
+<center style="padding: 20px">You are logedin</center>
+{% else %}
 <form method="POST">
     {% csrf_token %} {{ form.as_p }}
     <div class="log-text">
@@ -27,4 +30,5 @@
         <a id="register" class="register" href="/profile/register" title="Zarejestruj się"><span>Nie masz konta?</span> Zarejestruj się.</a>
     </li>
 </form>
+{% endif %}
 {% endblock login %} {% for message in messages %} {{message}}{% endfor %}

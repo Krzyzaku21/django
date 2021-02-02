@@ -1,5 +1,7 @@
-{% extends "base.html" %}{% block register %}{% load static %}
-<form action="" method="POST" enctype="multipart/form-data">
+{% comment %} {% extends "base.html" %} {% endcomment %}
+{% block register %}{% load static %}
+
+{% comment %} <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <h1>{{ user_form.username.label }}{{ user_form.username }}</h1>
     <h1>{{ user_form.email.label }}{{ user_form.email }}</h1>
@@ -28,5 +30,127 @@
         {% endfor %}
     {% endfor %}
 {% endif %}
+{% endblock register %} {% endcomment %}
 
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<style type="text/css">
+.container {
+    padding:5px;
+}
+.card-body {
+    background-color: rgba(70, 133, 54, 0.816);
+    color: white;
+    border-radius: 20px;
+}
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+
+.btn-facebook {
+    background-color: #405D9D;
+    color: #fff;
+}
+.btn-github {
+    background-color: black;
+    color: #fff;
+}
+.btn-primary {
+    background-color: black;
+    color: #fff;
+}
+</style>
+<div class="container">
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Create Account</h4>
+	<p class="text-center">Get started with your free account</p>
+	<p>
+		<a href="{% url 'social:begin' 'github' %}" class="btn btn-block btn-github"> <i class="fab fa-github"></i>   Login via Github</a>
+		<a href="{% url 'social:begin' 'facebook' %}" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+	</p>
+	<p class="divider-text">
+        <span class=""></span>
+    </p>
+	<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="username" class="form-control" placeholder="{{ user_form.username.label }}" type="text">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input name="email" class="form-control" placeholder="{{ user_form.email.label }}" type="email">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input name="password1" class="form-control" placeholder="{{ user_form.password1.label }}" type="password">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input name="password2" class="form-control" placeholder="{{ user_form.password2.label }}" type="password">
+    </div> <!-- form-group// -->
+        <div class="form-group" style="text-align: center; width: 100%;">
+        {{ register_form.date_of_birth }}
+    </div> <!-- form-group// -->
+        <div class="form-group">
+        <input type="file" name="image_add" accept="image/*" required=""  class="btn btn-primary btn-block" id="id_image_add">
+    </div> <!-- form-group// -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" value="Register"> Create Account  </button>
+    </div> <!-- form-group// -->
+    <div>
+    <p class="text-center">Have an account? <a style="color:red; font-size:24px;" href="{% url 'login' %}">Log In</a> </p>
+    </div>
+    <p class="text-center" style="font-size:1px">{% for message in messages %}{{message}} {% endfor %}
+<br />
+
+{% if user_form.errors %}
+    {% for field in user_form %}
+        {% for error in field.errors %}
+            <p class="text-center" style="font-size:9px">{{ error|escape }}</p>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+{% if register_form.errors %}
+    {% for field in register_form %}
+        {% for error in field.errors %}
+            <p class="text-center" style="font-size:9px">{{ error|escape }}</p>
+        {% endfor %}
+    {% endfor %}
+{% endif %}</p>
+    </form>
+</article>
+</div>
+</div>
 {% endblock register %}

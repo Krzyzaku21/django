@@ -1,6 +1,3 @@
-from email.mime.image import MIMEImage
-from email.mime.text import MIMEText  # Added
-from email.mime.multipart import MIMEMultipart
 from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse
@@ -23,6 +20,9 @@ from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import get_user_model
+
+from email.mime.image import MIMEImage
+
 UserModel = get_user_model()
 
 
@@ -63,6 +63,18 @@ class LogoutPageView(View):
         return redirect('/')
 
 
+class RegisterConfirm(View):
+
+    def get(self, request):
+        return render(request, 'reg_conf.html', {})
+
+
+class RegisterLog(View):
+
+    def get(self, request):
+        return render(request, 'reg_log.html', {})
+
+
 class RegisterPageView(View):
     template_name = 'register.html'
 
@@ -75,15 +87,14 @@ class RegisterPageView(View):
         context = {'user_form': user_form, 'register_form': register_form}
         return render(request, self.template_name, context)
 
-    def image_email(self):
-        static_image = 'my_portfolio\static\img\LOGO150x40.png'
-
     def post(self, request):
         if request.method == 'POST':
             user_form = CreateUserForm(request.POST)
             register_form = RegisterForm(request.POST, request.FILES)
             if user_form.is_valid():
-                user = user_form.save()
+                user = user_form.save(commit=False)
+                user.is_active = False
+                user.save()
                 user_form_id = user_form.instance.id
                 register_form.instance.user_id = user_form_id
                 if register_form.is_valid():
@@ -98,9 +109,15 @@ class RegisterPageView(View):
                         'token': default_token_generator.make_token(user),
                     })
                     to_email = user_form.cleaned_data.get('email')
+                    image_data = open('static/img/LOGO150x40.png', 'rb').read()
+                    image = MIMEImage(image_data, 'png')
+                    image.add_header('Content-ID', '<embed_image>')
                     email = EmailMessage(mail_subject, message, to=[to_email])
+                    email.attach(image)
+                    email.content_subtype = "html"
+                    email.mixed_subtype = 'related'
                     email.send()
-                    return HttpResponse('Please confirm your email address to complete the registration')
+                    return redirect('register-confirm')
             else:
                 print(f"Error like: {user_form.errors}")
                 print(f"Error like: {register_form.errors}")
@@ -109,65 +126,15 @@ class RegisterPageView(View):
             return render(request, self.template_name, context)
 
 
-class RegisterActivateView(View):
-    def post(self, request, uidb64, token):
-        try:
-            uid = urlsafe_base64_decode(uidb64).decode()
-            user = UserModel._default_manager.get(pk=uid)
-        except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-            user = None
-        if user is not None and default_token_generator.check_token(user, token):
-            user.is_active = True
-            user.save()
-            return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
-        else:
-            return HttpResponse('Activation link is invalid!')
-
-
-class RegisterAsk(View):
-    template_name = 'register_ask.html'
-
-    def get(self, request):
-        context = {}
-        return render(request, self.template_name, context)
-
-
-class RegisterConfirm(View):
-    template_name = 'register_confirm.html'
-
-    def get(self, request):
-        context = {}
-        return render(request, self.template_name, context)
-
-
-# class RegisterPageView(View):
-#     template_name = 'register.html'
-
-#     def get(self, request, *args, **kwargs):
-#         if request.user.is_authenticated:
-#             return redirect('/')
-#         else:
-#             user_form = CreateUserForm(request.POST)
-#             register_form = RegisterForm(request.POST)
-#         context = {'user_form': user_form, 'register_form': register_form}
-#         return render(request, self.template_name, context)
-
-#     def post(self, request):
-#         if request.method == 'POST':
-#             user_form = CreateUserForm(request.POST)
-#             register_form = RegisterForm(request.POST, request.FILES)
-#             if user_form.is_valid():
-#                 user = user_form.save()
-#                 user_form_id = user_form.instance.id
-#                 register_form.instance.user_id = user_form_id
-#                 if register_form.is_valid():
-#                     register_form.save()
-#                     username = user_form.cleaned_data.get('username')
-#                     messages.success(request, 'Account was created for ' + username)
-#                     return redirect('login')
-#             else:
-#                 print(f"Error like: {user_form.errors}")
-#                 print(f"Error like: {register_form.errors}")
-
-#         context = {'user_form': user_form, 'register_form': register_form}
-#         return render(request, self.template_name, context)
+def activate(request, uidb64, token):
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = UserModel._default_manager.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    if user is not None and default_token_generator.check_token(user, token):
+        user.is_active = True
+        user.save()
+        return redirect('register-log')
+    else:
+        return HttpResponse('Activation link is invalid!')

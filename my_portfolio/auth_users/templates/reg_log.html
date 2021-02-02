@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block register_confirm %}{% load static %}
+<center style="padding: 20px;">
+<p>Thank you for your email confirmation. Now you can login your account.</p>
+
+<a id="login" class="register" style="font-size: 20px; color: red;" href="{% url 'login' %}" title="Click to login"><span></span>Click to login</a>
+</center>
+{% endblock register_confirm %}

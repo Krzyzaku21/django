@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block register_confirm %}{% load static %}
+<center style="padding: 20px;">
+<p>Please confirm your email address to complete the registration.</p>
+<br>
+<p>if your email didn't pass, try register again.</p>
+<a id="login" class="register" style="font-size: 20px; color: red;" href="{% url 'register' %}" title="Click to login"><span></span>Click to register</a>
+</center>
+{% endblock register_confirm %}

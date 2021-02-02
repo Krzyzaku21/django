@@ -1,6 +1,15 @@
-{% autoescape off %}
-Hi {{ user.username }},
-Please click on the link to confirm your registration,
+<center>
+<div>
+<img src="cid:embed_image"/>
+</div>
+{% autoescape off %}{% load static %}
+</br>
+<div>
+<b>Hi {{ user.username }},</b>
+</br>
+</div>
+<p>Please click on the link to confirm your registration,</p>
 http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
-If you think, it's not you, then just ignore this email.
+<p>If you think, it's not you, then just ignore this email.</p>
 {% endautoescape %}
+</center>

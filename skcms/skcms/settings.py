@@ -59,7 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')
-            ],
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,6 +105,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# EMAIL RESPONSE
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "glesstestapp@gmail.com.com"
+EMAIL_HOST_PASSWORD = "Admin54321!"
+MAILER_EMAIL_BACKEND = EMAIL_BACKEND
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -123,16 +134,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-#PLIKI STATYCZNE
+# PLIKI STATYCZNE
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/django/skcms/static/',
 ]
 STATIC_URL = '/static/'
 
-#MEDIA ADD
+# MEDIA ADD
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-#APP MANAGE USERS
+# APP MANAGE USERS
 AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
