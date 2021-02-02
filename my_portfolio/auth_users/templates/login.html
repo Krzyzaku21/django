@@ -2,33 +2,45 @@
 {% if user.is_authenticated %}
 <center style="padding: 20px">You are logedin</center>
 {% else %}
-<form method="POST">
-    {% csrf_token %} {{ form.as_p }}
-    <div class="log-text">
-        <label for="log-log" class="log-txt">Login</label>
-        <input type="text" name="username" class="log-name log-docker" placeholder="Login lub E-mail" />
+<style>
+.form-a {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgba(70, 133, 54, 0.816);
+    padding: 20px;
+    border-radius: 20px;
+}
+</style>
+<form method="POST" style="margin: 30px;">
+    <div class="form-a">
+        {% csrf_token %} {{ form.as_p }}
+        <div class="log-text">
+            <label for="log-log" class="log-txt">Login</label>
+            <input type="text" name="username" class="log-name log-docker" placeholder="Login lub E-mail" />
+        </div>
+        <div class="log-text">
+            <span class="log-txt">Hasło</span>
+            <input type="password" name="password" class="log-pass log-docker" placeholder="Hasło" />
+        </div>
+        <fieldset class="log-button">
+            <p>
+                <input type="submit" class="log-btn" value="Zaloguj się" />
+            </p>
+        </fieldset>
+        <li class="log-or">
+            <span class="">lub</span>
+        </li>
+        <li class="fb-btn">
+            <a class="log-fb" href="{% url 'social:begin' 'facebook' %}"><i class="fab fa-facebook-square"></i> <span>Zaloguj przez Facebook</span></a>
+        </li>
+        <li class="google-btn" style="background-color: black">
+            <a class="log-google" href="{% url 'social:begin' 'github' %}"><i class="fab fa-github"></i> <span>Zaloguj przez Google</span></a>
+        </li>
+        <li>
+            <a id="register" style="color: red; font-size: 15px;" class="register" href="/profile/register" title="Zarejestruj się"><span>Nie masz konta?</span> Zarejestruj się.</a>
+        </li>
     </div>
-    <div class="log-text">
-        <span class="log-txt">Hasło</span>
-        <input type="password" name="password" class="log-pass log-docker" placeholder="Hasło" />
-    </div>
-    <fieldset class="log-button">
-        <p>
-            <input type="submit" class="log-btn" value="Zaloguj się" />
-        </p>
-    </fieldset>
-    <li class="log-or">
-        <span class="">lub</span>
-    </li>
-    <li class="fb-btn">
-        <a class="log-fb" href="{% url 'social:begin' 'facebook' %}"><i class="fab fa-facebook-square"></i> <span>Zaloguj przez Facebook</span></a>
-    </li>
-    <li class="google-btn">
-        <a class="log-google" href="#"><i class="fab fa-google"></i> <span>Zaloguj przez Google</span></a>
-    </li>
-    <li>
-        <a id="register" class="register" href="/profile/register" title="Zarejestruj się"><span>Nie masz konta?</span> Zarejestruj się.</a>
-    </li>
 </form>
 {% endif %}
 {% endblock login %} {% for message in messages %} {{message}}{% endfor %}
