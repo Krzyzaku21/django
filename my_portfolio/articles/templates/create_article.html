@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block article %} {% load static %}
+<style>
+.lay {
+    padding: 20px;
+}
+.add_article {
+    width: 100%%;
+    margin: 0 auto;
+    background-color: #2e5c54;;
+    padding: 20px;
+    border-radius: 20px;
+}
+.add_article div {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.log-txt {
+    text-align: left;
+}
+</style>
+<div class="lay">
+<div class="add_article">
+{% if user.is_authenticated %}
+<form action='.' method='POST' enctype="multipart/form-data">{% csrf_token %}
+<div class="log-txt">{{ form_class.title.label }}</div>
+<div>{{ form_class.title }}</div>
+<div class="log-txt">{{ form_class.content.label }}</div>
+<div>{{ form_class.content }}</div>
+<div>{{ form_class.pub_date }}</div>
+<div class="log-txt">{{ form_class.article_image.label }}</div>
+<div class="log-btn"style="background-color: #8d5555;" >{{ form_class.article_image }}</div>
+    <input class="log-btn" type='submit' value='Save' />
+</form>
+{% else %}
+<p style="padding: 20px;">You cant add articles please login</p>
+{% endif %}
+</div>
+</div>
+{% endblock article %}

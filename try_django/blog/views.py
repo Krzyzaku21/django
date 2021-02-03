@@ -29,8 +29,7 @@ class ArticleDetailView(DetailView):
 
 class ArticleCreateView(CreateView):
     template_name = 'articles/article_create.html'
-    form_class = ArticleModelForm
-    queryset = Article.objects.all()  # <blog>/<modelname>_list.html
+    queryset = Article.objects.all()
 
     def form_valid(self, form):
         print(form.cleaned_data)
