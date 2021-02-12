@@ -1,4 +1,5 @@
-
+# python manage.py makemigrations myappname
+# python manage.py migrate --fake myappname zero
 # pip install --upgrade --force-reinstall
 # todo CTRL + F5- W Chrome przy update czegokolwiek bypass - odświerzanie chrome przeglądarki
 # ! /////////////////////////////////////////// ODPALANIE MASZYNY WIRTUALNEJ

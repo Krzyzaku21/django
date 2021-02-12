@@ -1,9 +1,10 @@
 {% extends "base.html" %} {% block article %} {% load static %}
+
 <div class="article-bar">
     <div><h1>{{ article.title }}</h1></div>
     <div><h2>{{ article.pub_date }}</h2></div>
 </div>
-<div class="article-box">
+<div class="article-box" style="min-height:300px;">
     <section>
         {% if article.article_image %}
         <img src="{{ article.article_image.url }}" alt="image 1" align="left" />
@@ -11,4 +12,80 @@
         <span>{{ article.content }} </span>
     </section>
 </div>
+
+<div style='background-color: red;'>
+{% with allcomments.count as total_comments %}
+<h2>
+{{ total_comments }} comment{{ total_comments }}
+</h2>
+{% endwith %}
+</div>
+
+
+{% load mptt_tags %}
+<div>
+{% recursetree comments %}
+<style>
+.parent {
+    background-color: green;
+    padding: 15px;
+    margin: 5px;
+    border-radius: 20px;
+}
+.children {
+    margin-left: 30px;
+}
+</style>
+<div id="{{ node.id }}" class="parent">
+    <div class="d-flex justify-content-between">{{ node.user }}<div></div>{{ node.publish }}</div>
+    <div>{{ node.content }}</div>
+    <hr />
+    {% if node.level < 20 %}
+    <button class="button" onclick="myFunction({{ node.id }})">Reply</button>
+    {% endif %}
+</div>
+{% if not node.is_leaf_node %}
+<div class="children">
+    {{ children }}
+</div>
+{% endif %}
+{% endrecursetree %}
+</div>
+
+<form id="myForm" method="post">
+<h2>Create new comment</h2>
+{% csrf_token %}
+{{ comment_form.content }}
+<button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+</form>
+
+<script>
+  function formExit() {
+    document.getElementById("newForm").remove();
+  }
+
+  function myFunction(id) {
+    if (document.contains(document.getElementById("newForm"))) {
+      document.getElementById("newForm").remove();
+    }
+
+    var d1 = document.getElementById(id);
+    d1.insertAdjacentHTML('afterend',
+
+    '<form id="newForm" class="form-insert py-2" method="post"> \
+            <select hidden name="parent" class="d-none" id="id_parent"> \
+                <option value="' + id + '" selected="' + id + '"></option> \
+            </select> \
+            <div class="d-flex justify-content-between"><h2>Reply:</h2><div><button type="button" class="btn btn-outline-secondary" onclick="formExit()"">Close</button></div></div> \
+            <textarea name="content" cols="40" rows="5" class="form-control" required id="id_content"></textarea> \
+            {% csrf_token %} \
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button> \
+    </form>'
+    );
+
+    //document.querySelector('#id_parentt [value="' + id + '"]').selected = true;
+  }
+
+  $('#myForm').trigger("reset");
+</script>
 {% endblock article %}

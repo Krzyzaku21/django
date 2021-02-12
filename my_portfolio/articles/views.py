@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from articles.models import Article
 from django.views import View
 from django.core.paginator import Paginator
@@ -12,18 +12,51 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Article
-from .forms import ArticleModelForm
+from .models import Article, Comment
+from .forms import ArticleModelForm, NewCommentForm
+from django.views.generic import ListView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
 
 class LoadArticle(View):
 
     def get(self, request, article_id):
-        context = {
-            'article': Article.objects.get(id=article_id),
-        }
+
+        post = get_object_or_404(Article, id=article_id, status='published')
+        allcomments = post.comments.filter(status=True)
+        page = request.GET.get('page', 1)
+
+        paginator = Paginator(allcomments, 10)
+        try:
+            comments = paginator.page(page)
+        except PageNotAnInteger:
+            comments = paginator.page(1)
+        except EmptyPage:
+            comments = paginator.page(paginator.num_pages)
+
+        else:
+            comment_form = NewCommentForm()
+            context = {
+                'article': Article.objects.get(id=article_id),
+                'post': post,
+                'comments': comments,
+                'comment_form': comment_form,
+                'allcomments': allcomments,
+            }
         return render(request, 'article.html', context)
+
+    def post(self, request, article_id):
+        post = get_object_or_404(Article, id=article_id, status='published')
+        user_comment = None
+        if request.method == 'POST':
+            comment_form = NewCommentForm(request.POST)
+            if comment_form.is_valid():
+                user_comment = comment_form.save(commit=False)
+                user_comment.post = post
+                user_comment.user = request.user
+                user_comment.save()
+                return HttpResponseRedirect('../' + str(article_id))
 
 
 class CreateArticle(View):
