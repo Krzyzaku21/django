@@ -16,6 +16,7 @@ from .models import Article, Comment
 from .forms import ArticleModelForm, NewCommentForm
 from django.views.generic import ListView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from social_django.models import UserSocialAuth
 # Create your views here.
 
 
@@ -39,10 +40,13 @@ class LoadArticle(View):
             comment_form = NewCommentForm()
             context = {
                 'article': Article.objects.get(id=article_id),
-                'post': post,
-                'comments': comments,
-                'comment_form': comment_form,
-                'allcomments': allcomments,
+                'post': post, 'comments': comments, 'comment_form': comment_form, 'allcomments': allcomments,
+                'auth_social_users_fb': UserSocialAuth.objects.filter(provider='facebook').values_list(
+                    'user_id', flat=True),
+                'auth_social_users_git': UserSocialAuth.objects.filter(provider='github').values_list(
+                    'user_id', flat=True),
+                'auth_social_users_uid': UserSocialAuth.objects.filter().values_list(
+                    'uid', flat=True)
             }
         return render(request, 'article.html', context)
 
@@ -75,6 +79,7 @@ class CreateArticle(View):
             if request.user.is_authenticated:
                 form_class = ArticleModelForm(request.POST, request.FILES)
                 if form_class.is_valid():
+                    form_class.instance.article_author_id = request.user.id
                     form_class.save()
                 context = {
                     'form_class': form_class,

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "home_loader",
     'social_django',
     'mptt',
+    'fontawesome-free',
 ]
 
 MIDDLEWARE = [
@@ -165,6 +166,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.associate_user',
     'social.pipeline.social_auth.load_extra_data',
     'social.pipeline.user.user_details',
+    'auth_users.pipeline.save_profile_picture',
 )
 
 # EMAIL RESPONSE

@@ -1,8 +1,14 @@
 {% extends "base.html" %} {% block article %} {% load static %}
-
+<style>
+.article-box section {
+    padding: 20px;
+    padding-top: 10px;
+    margin-right: 10px;
+}
+</style>
 <div class="article-bar">
     <div><h1>{{ article.title }}</h1></div>
-    <div><h2>{{ article.pub_date }}</h2></div>
+    <div><h2>Created by: {{ article.article_author }} in {{ article.pub_date }}</h2></div>
 </div>
 <div class="article-box" style="min-height:300px;">
     <section>
@@ -13,11 +19,9 @@
     </section>
 </div>
 
-<div style='background-color: red;'>
+<div class="article-bar">
 {% with allcomments.count as total_comments %}
-<h2>
-{{ total_comments }} comment{{ total_comments }}
-</h2>
+<div><h1>Number of comments: {{ total_comments }}</h1></div>
 {% endwith %}
 </div>
 
@@ -27,22 +31,121 @@
 {% recursetree comments %}
 <style>
 .parent {
-    background-color: green;
-    padding: 15px;
     margin: 5px;
-    border-radius: 20px;
 }
 .children {
     margin-left: 30px;
 }
+.content {
+    border: 1px solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 15px;
+    min-height: 50px;
+}
+.btn1 {
+    float: right;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100px;
+    background-color: rgba(70, 133, 54, 0.542);
+    color: white;
+}
+.article-bar2 {
+    background-color: var(--green5);
+    width: 100%;
+    min-height: 45px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: inline-flex;
+    justify-content: space-between;
+}
+.article-bar2 .home-bar {
+    padding: 5px;
+    margin-left: 20px;
+
+}
+.article-bar2 div {
+    display: flex;
+
+}
+.article-bar2 h1 {
+    font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    text-shadow: 1px 1px 1px var(--dark);
+    font-style: italic;
+    color: var(--white-background);
+    text-align: center;
+    padding: 10px;
+}
+.article-bar2 div h2 {
+    margin-top: 15px;
+    text-align: right;
+    margin-right: 15px;
+    font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    text-shadow: 1px 1px 1px var(--dark);
+    font-style: italic;
+    color: var(--white-background);
+}
 </style>
 <div id="{{ node.id }}" class="parent">
-    <div class="d-flex justify-content-between">{{ node.user }}<div></div>{{ node.publish }}</div>
-    <div>{{ node.content }}</div>
-    <hr />
-    {% if node.level < 20 %}
-    <button class="button" onclick="myFunction({{ node.id }})">Reply</button>
-    {% endif %}
+    <div class="article-bar2">
+        <div class="home-bar">
+            {% for obj in register_all %}
+                {% if node.user_id == obj.user_id %}
+                <img
+                    src="{{ obj.image_add.url }}"
+                    alt="user-image"
+                    class="user-class"
+                />
+                {% endif %}
+            {% endfor %}
+            {% for fb_id in auth_social_users_fb %}
+            {% if node.user_id == fb_id %}
+                    {% for uid in auth_social_users_uid %}
+                    {% if uid|length == 16 %}
+                    <img
+                    src="https://graph.facebook.com/{{uid}}/picture"
+                    alt="user-image"
+                    class="user-class"
+                    />
+                    {% endif %}
+                    {% endfor %}
+            {% else %}
+            {% endif %}
+            {% endfor %}
+            {% for git_id in auth_social_users_git %}
+            {% if node.user_id == git_id %}
+                    {% for uid in auth_social_users_uid %}
+                    {% if uid|length == 8 %}
+                    <img
+                    src="https://avatars.githubusercontent.com/u/{{uid}}?s=60&v=4"
+                    alt="user-image"
+                    class="user-class"
+                    />
+                    {% endif %}
+                    {% endfor %}
+            {% else %}
+            {% endif %}
+            {% endfor %}
+        <h1>{{ node.user }}</h1>
+        </div>
+        <div><h2>{{ node.publish }}</h2></div>
+    </div>
+    <div class="content">
+        <div>{{ node.content }}</div>
+        <div class='btn-padder'>
+            {% if node.level < 20 %}
+            {% if user.is_authenticated %}
+            <button class="btn1" onclick="myFunction({{ node.id }})">Reply</button>
+            {% else %}
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% if not node.is_leaf_node %}
 <div class="children">
@@ -51,13 +154,35 @@
 {% endif %}
 {% endrecursetree %}
 </div>
-
+<style>
+#myForm {
+    padding: 10px;
+}
+.btn-form {
+    float: right;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100px;
+    background-color: rgba(70, 133, 54, 0.542);
+    color: white;
+}
+.btn-padder {
+    padding: 10px;
+}
+</style>
+{% if user.is_authenticated %}
 <form id="myForm" method="post">
-<h2>Create new comment</h2>
+<div class="article-bar">
+<div><h1>Create new comment</h1></div>
+</div>
 {% csrf_token %}
 {{ comment_form.content }}
-<button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+<div class='btn-padder'>
+<button type="submit" class="btn-form">Submit</button>
+</div>
 </form>
+{% else %}
+{% endif %}
 
 <script>
   function formExit() {
@@ -76,16 +201,69 @@
             <select hidden name="parent" class="d-none" id="id_parent"> \
                 <option value="' + id + '" selected="' + id + '"></option> \
             </select> \
-            <div class="d-flex justify-content-between"><h2>Reply:</h2><div><button type="button" class="btn btn-outline-secondary" onclick="formExit()"">Close</button></div></div> \
+            <div style="padding: 5px; width: 300px; float: right; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;"> \
+            <div class="article-bar"><div><h1>Reply: </h1></div></div> \
             <textarea name="content" cols="40" rows="5" class="form-control" required id="id_content"></textarea> \
             {% csrf_token %} \
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button> \
+            <div class="btn-padder"> \
+            <button type="submit" class="btn-form">Submit</button> \
+            <button type="button" class="btn-form" onclick="formExit()"">Close</button></div></div> \
+            </div> \
+            </div> \
     </form>'
     );
-
     //document.querySelector('#id_parentt [value="' + id + '"]').selected = true;
   }
 
   $('#myForm').trigger("reset");
 </script>
+<br>
+<style>
+.article-page-nav {
+    background-color: var(--green5);
+    width: 100%;
+    min-height: 45px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.article-page-nav li {
+    justify-content: space-between;
+    margin-left: 50%;
+    margin-right: 50%;
+}
+.article-page-nav a {
+    font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+    font-style: italic;
+    color: white;
+}
+</style>
+<div class="article-page-nav" id="pagenav">
+          {% if comments.has_other_pages %}
+          <ul class="pagination">
+            {% if comments.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ comments.previous_page_number }}">Previous</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#pagenav">Previous</a></li>
+            {% endif %}
+            {% for num in comments.paginator.page_range %}
+            {% if comments.number == l %}
+            <li class="page-item active"><span class="page-link">{{ num }} <span class="sr-only">(current)</span></span>
+            </li>
+            {% else %}
+            <li><a class="page-link" href="?page={{ num }}#pagenav">{{ num }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if comments.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ comments.next_page_number }}">Next</a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#pagenav">Next</a></li>
+            {% endif %}
+          </ul>
+          {% endif %}
+</div>
 {% endblock article %}

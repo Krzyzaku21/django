@@ -22,7 +22,7 @@ class Article(models.Model):
     pub_date = models.DateTimeField(verbose_name='Date', default=datetime.now, editable=False)
     article_image = models.ImageField(upload_to='image', verbose_name='Image of Article', null=True, blank=True)
     article_author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     status = models.CharField(max_length=10, choices=options, default='published')
     objects = models.Manager()  # default manager
     articlemanager = ArticleManager()  # custom manager
