@@ -410,6 +410,10 @@ header {
     align-items: center;
     flex-direction: column;
 }
+.log-panel .login-hi {
+    width: 100%;
+    font-size: 10px;
+}
 /* & END OPTIONS BOX */
 /* * END HEADER MENU */
 /* ! END BODY--> */

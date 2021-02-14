@@ -12,7 +12,7 @@
     --dark: #1c1e21;
 } */
 /* * NAV MENU */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
     .scrollable {
         overflow-y: scroll;
         height: 350px;

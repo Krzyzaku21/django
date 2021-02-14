@@ -5,6 +5,12 @@
     padding-top: 10px;
     margin-right: 10px;
 }
+@media screen and (max-width: 700px) {
+
+    .content {
+        font-size: 11px;
+    }
+}
 </style>
 <div class="article-bar">
     <div><h1>{{ article.title }}</h1></div>
@@ -57,7 +63,8 @@
     min-height: 45px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    display: inline-flex;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .article-bar2 .home-bar {
@@ -133,7 +140,9 @@
             {% endfor %}
         <h1>{{ node.user }}</h1>
         </div>
-        <div><h2>{{ node.publish }}</h2></div>
+        <div>
+            <div><h2>{{ node.publish }}</h2></div>
+        </div>
     </div>
     <div class="content">
         <div>{{ node.content }}</div>
@@ -232,8 +241,6 @@
 }
 .article-page-nav li {
     justify-content: space-between;
-    margin-left: 50%;
-    margin-right: 50%;
 }
 .article-page-nav a {
     font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;

@@ -8,7 +8,7 @@
         {% if ten_articles.article_image %}
         <img src="{{ ten_articles.article_image.url }}" alt="image 1" align="left" />
         {% else %} {% endif %}
-        <span>{{ ten_articles.content | truncatewords:110 }} </span>
+        <span>{{ ten_articles.content|truncatewords:100}}</span>
         <div>
             <a href="/articles/{{ ten_articles.id }}/"><button>Czytaj więcej</button></a>
         </div>

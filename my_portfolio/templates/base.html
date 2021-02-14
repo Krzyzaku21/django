@@ -130,9 +130,13 @@
                                     <ul>
                                         <li>
                                             <div class="log-button">
-                                                {% if user.is_authenticated %} Hi {{ user.username }}!
-                                                <p><a href="{% url 'logout' %}">Log Out</a></p>
-                                                {% else %}
+                                                <div class="log-button-login">
+                                                    {% if user.is_authenticated %}
+                                                    <div class="login-hi">
+                                                    Hi {{ user.username }}!</div>
+                                                    <p><a href="{% url 'logout' %}">Log Out</a></p>
+                                                    {% else %}
+                                                </div>
                                                 <form method="POST">
                                                     {% csrf_token %} {{ form.as_p }}
                                                     <div class="log-text">
@@ -189,37 +193,37 @@
                             <li class="nav-item" id="account">
                                 <a href="#account" class="btn">Profile</a>
                                 <div class="nav-sub-menu">
-                                    <a href="">Posts</a>
-                                    <a href="">Info</a>
-                                    <a href="">Photos</a>
-                                    <a href="">Friends</a>
+                                    <a href="#">Posts</a>
+                                    <a href="#">Info</a>
+                                    <a href="#">Photos</a>
+                                    <a href="#">Friends</a>
                                 </div>
                             </li>
                             <li class="nav-item" id="about">
                                 <a href="#about" class="btn">Codes</a>
                                 <div class="nav-sub-menu">
-                                    <a href="">Python</a>
-                                    <a href="">HTML</a>
-                                    <a href="">CSS</a>
-                                    <a href="">Python -> Django</a>
+                                    <a href="#">Python</a>
+                                    <a href="#">HTML</a>
+                                    <a href="#">CSS</a>
+                                    <a href="#">Python -> Django</a>
                                 </div>
                             </li>
                             <li class="nav-item" id="support">
                                 <a href="#support" class="btn">Science</a>
                                 <div class="nav-sub-menu">
                                     <a href="{% url 'article-create' %}">Posts</a>
-                                    <a href="">Info</a>
-                                    <a href="">Photos</a>
-                                    <a href="">Friends</a>
+                                    <a href="#">Info</a>
+                                    <a href="#">Photos</a>
+                                    <a href="#">Friends</a>
                                 </div>
                             </li>
                             <li class="nav-item" id="support2">
                                 <a href="#support2" class="btn">Projects</a>
                                 <div class="nav-sub-menu">
-                                    <a href="">First project</a>
-                                    <a href="">Second project</a>
-                                    <a href="">Third project</a>
-                                    <a href="">Four project</a>
+                                    <a href="#">First project</a>
+                                    <a href="#">Second project</a>
+                                    <a href="#">Third project</a>
+                                    <a href="#">Four project</a>
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -322,7 +326,7 @@
                     </article>
                     <article class="art">
                         <div class="article-bar">
-                            <h1>Gallery</h1>
+                            <div><h1>Gallery</h1></div>
                         </div>
                         <div class="gallery-box">
                             <section>
